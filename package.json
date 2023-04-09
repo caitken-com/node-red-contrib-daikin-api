@@ -1,6 +1,6 @@
 {
 	"name": "@caitken-com/node-red-contrib-daikin-api",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Daikin Control API",
 	"main": "daikin-api.js",
 	"keywords": [
@@ -13,7 +13,7 @@
 		"node": ">=14.18.1"
 	},
 	"bugs": {
-		"url": "https://github.com/caitken-com/"
+		"url": "https://github.com/caitken-com/node-red-contrib-daikin-api/issues"
 	},
 	"author": "Christopher Aitken",
 	"homepage": "https://github.com/caitken-com/",
