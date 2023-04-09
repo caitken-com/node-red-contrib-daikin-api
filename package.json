@@ -1,0 +1,28 @@
+{
+	"name": "@caitken-com/node-red-contrib-daikin-api",
+	"version": "1.0.0",
+	"description": "Daikin Control API",
+	"main": "daikin-api.js",
+	"keywords": [
+		"daikin",
+		"airconditioner",
+		"BRP15B61",
+		"node-red"
+	],
+	"engines": {
+		"node": ">=14.18.1"
+	},
+	"bugs": {
+		"url": "https://github.com/caitken-com/"
+	},
+	"author": "Christopher Aitken",
+	"homepage": "https://github.com/caitken-com/",
+	"license": "MIT",
+	"node-red": {
+		"version": ">=2.0.0",
+		"nodes": {
+			"daikin-server": "daikin-server.js",
+			"daikin-api": "daikin-api.js"
+		}
+	}
+}
