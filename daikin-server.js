@@ -134,8 +134,6 @@ module.exports = function(RED)
 				opts.path += `?${params.toString()}`;
 			}
 
-			console.log(opts.path);
-
 			return opts;
 		}
 
