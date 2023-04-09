@@ -5,12 +5,19 @@ Controls Daikin air-conditioner wifi controller/adaptor via Node Red. *Tested wi
 ## daikin-server (config node)
 
 **IP Address:** *[string]* Local IP of your BRP15B61 Wifi adaptor. Eg: `192.168.1.123`
+
 **Auto mode** *[int]* ID of auto mode.
+
 **Fan mode:** *[int]* ID of Fan mode.
+
 **Heat mode:** *[int]* ID of Heating mode.
+
 **Cool mode:** *[int]* ID of Cooling mode.
+
 **Dry mode:** *[int]* ID of Drying.
+
 **Dehumidifier mode:** *[int]* ID Dehumidifier mode.
+
 
 Each aircon-unit maybe be setup with different IDs for the various modes. Here's some [documentation on possible values](https://github.com/ael-code/daikin-control), although my IDs don't match that which is why I've made it a config.
 
@@ -47,9 +54,13 @@ Use this to send commands to the wifi controller. At least **one** of the follow
 }
 ```
 **Power:** *[bool]* `true|false`
+
 **Mode:** *[string]* `Auto|Heat|Cool|Dry|Dehumidifier|Fan` (!)
+
 **TargetTemperature:** *[int]* `0-100` degrees celsius
+
 **FanRate:** [string] `Auto|Silence|Low|1|2|3|4|5|Auto low|Auto mid|Auto high|` (!)
+
 **FanDirection:** [string] `Off|Vertical|Horizontal|3D` (!)
 
 (!) Not all options are available on every system.
