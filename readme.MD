@@ -30,7 +30,7 @@ On initial deploy the node will automatically sync with the wifi controller. But
 *General use only requires these two commands: `getControlInfo`  `setControlInfo`*
 
 ## Get control info:
-Use this to sync with wifi controller. After the initial sync you'll need this do this command periodically to keep the node / your flows in sync with the wifi controller.
+Use this to fetch the status from the wifi controller. After the initial automatic sync you'll need to do this command periodically to keep the node / your flows in sync with the wifi controller.
 ```
 {
 	"cmd": "getControlInfo"
@@ -42,7 +42,7 @@ The above payload will return something similar to this:
 ```
 
 ## Set control info:
-Use this to send commands to the wifi controller. At least **one** of the following must be set: `Power, Mode, TargetTemperature, FanRate, FanDirection`
+Use this to send commands (set values) to the wifi controller. At least **one** of the following must be set: `Power, Mode, TargetTemperature, FanRate, FanDirection`
 ```
 {
 	"cmd": "setControlInfo",
