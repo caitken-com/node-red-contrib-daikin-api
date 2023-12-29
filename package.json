@@ -1,11 +1,15 @@
 {
 	"name": "@caitken-com/node-red-contrib-daikin-api",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Daikin Control API",
 	"main": "daikin-api.js",
+	"dependencies": {},
 	"keywords": [
 		"daikin",
-		"airconditioner",
+		"AC",
+		"HVAC",
+		"air",
+		"conditioner",
 		"BRP15B61",
 		"node-red"
 	],

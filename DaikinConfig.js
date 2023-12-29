@@ -42,8 +42,8 @@ class DaikinConfig
 
 
 	/**
-	 * Get power mode
-	 * @returns {Bool}
+	 * @description Get power mode
+	 * @returns {Boolean}
 	 */
 	getPower()
 	{
@@ -53,18 +53,18 @@ class DaikinConfig
 
 
 	/**
-	 * Set power mode
-	 * @param {Bool}
+	 * @description Set power mode
+	 * @param {Boolean}
 	 * @return {void}
 	 */
-	setPower(bool)
+	setPower(enabled)
 	{
-		this.config.pow = bool ? 1 : 0;
+		this.config.pow = enabled ? 1 : 0;
 	}
 
 
 	/**
-	 * Get type
+	 * @description Get type
 	 * @returns {String}
 	 */
 	getType()
@@ -75,7 +75,7 @@ class DaikinConfig
 
 
 	/**
-	 * Set type
+	 * @description Set type
 	 * @param {String}
 	 * @return {void}
 	 */
@@ -86,7 +86,7 @@ class DaikinConfig
 
 
 	/**
-	 * Get country code
+	 * @description Get country code
 	 * @returns {String}
 	 */
 	getReg()
@@ -97,7 +97,7 @@ class DaikinConfig
 
 
 	/**
-	 * Set country code
+	 * @description Set country code
 	 * @param {String} str
 	 * @returns {void}
 	 */
@@ -107,6 +107,10 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getDst()
 	{
 		if (!('dst' in this.config)) this.config.dst = 0;
@@ -114,12 +118,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Dst
+	 * @param {Number} dst
+	 * @returns {void}
+	 */
 	setDst(dst)
 	{
 		this.config.dst = dst;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getVer()
 	{
 		if (!('ver' in this.config)) this.config.ver = 0;
@@ -127,12 +140,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Version
+	 * @param {Number} ver
+	 * @returns {void}
+	 */
 	setVer(ver)
 	{
 		this.config.ver = ver;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getRev()
 	{
 		if (!('rev' in this.config)) this.config.rev = 0;
@@ -140,12 +162,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set revision
+	 * @param {Number} rev
+	 * @returns {void}
+	 */
 	setRev(rev)
 	{
 		this.config.rev = rev;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getErr()
 	{
 		if (!('err' in this.config)) this.config.err = 0;
@@ -153,6 +184,11 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Error
+	 * @param {Number} err
+	 * @returns {void}
+	 */
 	setErr(err)
 	{
 		this.config.err = err;
@@ -160,7 +196,7 @@ class DaikinConfig
 
 
 	/**
-	 * Get country code
+	 * @description Get country code
 	 * @returns {String}
 	 */
 	getLocation()
@@ -171,7 +207,7 @@ class DaikinConfig
 
 
 	/**
-	 * Set country code
+	 * @description Set country code
 	 * @param {String} str
 	 * @returns {void}
 	 */
@@ -182,8 +218,7 @@ class DaikinConfig
 
 
 	/**
-	 * Get model name
-	 *
+	 * @description Get model name
 	 * @returns {string}
 	 */
 	getName()
@@ -198,8 +233,7 @@ class DaikinConfig
 
 
 	/**
-	 * Set model name
-	 *
+	 * @description Set model name
 	 * @param {string} name
 	 * @returns {void}
 	 */
@@ -216,6 +250,10 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getIcon()
 	{
 		if (!('icon' in this.config)) this.config.icon = 0;
@@ -223,12 +261,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Icon
+	 * @param {Number} icon
+	 * @returns {void}
+	 */
 	setIcon(icon)
 	{
 		this.config.icon = icon;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getMethod()
 	{
 		if (!('method' in this.config)) this.config.method = 0;
@@ -236,12 +283,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Method
+	 * @param {Number} method
+	 * @returns {void}
+	 */
 	setMethod(method)
 	{
 		this.config.method = method;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getPort()
 	{
 		if (!('port' in this.config)) this.config.port = 0;
@@ -249,12 +305,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Port
+	 * @param {Number} port
+	 * @returns {void}
+	 */
 	setPort(port)
 	{
 		this.config.port = port;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getId()
 	{
 		if (!('id' in this.config)) this.config.id = 0;
@@ -262,12 +327,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set ID
+	 * @param {Number} id
+	 * @returns {void}
+	 */
 	setId(id)
 	{
 		this.config.id = id;
 	}
 
 
+	/**
+	 * @description Get low power flag
+	 * @returns {Number}
+	 */
 	getLpwflag()
 	{
 		if (!('lpw_flag' in this.config)) this.config.lpw_flag = 0;
@@ -275,12 +349,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Low power flag
+	 * @param {Number} flag
+	 * @returns {void}
+	 */
 	setLpwflag(flag)
 	{
 		this.config.lpw_flag = flag;
 	}
 
 
+	/**
+	 * @description Adapter kind
+	 * @returns {Number}
+	 */
 	getAdpkind()
 	{
 		if (!('adp_kind' in this.config)) this.config.adp_kind = 0;
@@ -288,6 +371,11 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Adaptor kind
+	 * @param {Number} dst
+	 * @returns {void}
+	 */
 	setAdpkind(kind)
 	{
 		this.config.adp_kind = kind;
@@ -295,7 +383,7 @@ class DaikinConfig
 
 
 	/**
-	 * Get LED status
+	 * @description Get LED status
 	 * @returns {Boolean}
 	 */
 	getLed()
@@ -306,17 +394,17 @@ class DaikinConfig
 
 
 	/**
-	 * Set LED status
+	 * @description Set LED status
 	 * @returns {void}
 	 */
-	setLed(bool)
+	setLed(enabled)
 	{
-		this.config.led = bool ? 1 : 0;
+		this.config.led = enabled ? 1 : 0;
 	}
 
 
 	/**
-	 * Get enable set zone
+	 * @description Get enable set zone
 	 * @returns {Boolean}
 	 */
 	getEnSetZone()
@@ -327,15 +415,19 @@ class DaikinConfig
 
 
 	/**
-	 * Set enable set zone
+	 * @description Set enable set zone
 	 * @returns {void}
 	 */
-	setEnSetZone(bool)
+	setEnSetZone(enabled)
 	{
-		this.config.en_setzone = bool ? 1 : 0;
+		this.config.en_setzone = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getMac()
 	{
 		if (!('mac' in this.config)) this.config.mac = 0;
@@ -343,12 +435,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set mac
+	 * @param {Number} mac
+	 * @returns {void}
+	 */
 	setMac(mac)
 	{
 		this.config.mac = mac;
 	}
 
 
+	/**
+	 * @description Get adaptor mode
+	 * @returns {Number}
+	 */
 	getAdpmode()
 	{
 		if (!('adp_mode' in this.config)) this.config.adp_mode = 0;
@@ -356,12 +457,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set adaptor mode
+	 * @param {Number} mode
+	 * @returns {void}
+	 */
 	setAdpmode(mode)
 	{
 		this.config.adp_mode = mode;
 	}
 
 
+	/**
+	 * @description Get SSID
+	 * @returns {Number}
+	 */
 	getSsid()
 	{
 		if (!('ssid' in this.config)) this.config.ssid = 0;
@@ -369,12 +479,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set SSID
+	 * @param {Number} dst
+	 * @returns {void}
+	 */
 	setSsid(id)
 	{
 		this.config.ssid = id;
 	}
 
 
+	/**
+	 * @description Get error type
+	 * @returns {Number}
+	 */
 	getErrtype()
 	{
 		if (!('err_type' in this.config)) this.config.err_type = 0;
@@ -382,12 +501,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set error type
+	 * @param {Number} dst
+	 * @returns {void}
+	 */
 	setErrtype(type)
 	{
 		this.config.err_type = type;
 	}
 
 
+	/**
+	 * @description Get error code
+	 * @returns {Number}
+	 */
 	getErrcode()
 	{
 		if (!('err_code' in this.config)) this.config.err_code = 0;
@@ -395,12 +523,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set error code
+	 * @param {Number} dst
+	 * @returns {void}
+	 */
 	setErrcode(code)
 	{
 		this.config.err_code = code;
 	}
 
 
+	/**
+	 * @description Determine if Ch is enabled
+	 * @returns {Number}
+	 */
 	getEnch()
 	{
 		if (!('ench' in this.config)) this.config.ench = 0;
@@ -408,14 +545,19 @@ class DaikinConfig
 	}
 
 
-	setEnch(bool)
+	/**
+	 * @description Enable/disable Ch
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnch(enabled)
 	{
-		this.config.ench = bool ? 1 : 0;
+		this.config.ench = enabled ? 1 : 0;
 	}
 
 
 	/**
-	 * Get holiday mode
+	 * @description Determine if holiday mode
 	 * @return {Boolean}
 	 */
 	getHoliday()
@@ -426,18 +568,18 @@ class DaikinConfig
 
 
 	/**
-	 * Set holiday mode
-	 * @param {Boolean} bool
+	 * @description Set holiday mode
+	 * @param {Boolean} enabled
 	 * @return {void}
 	 */
-	setHoliday(bool)
+	setHoliday(enabled)
 	{
-		this.config.holiday = bool ? 1 : 0;
+		this.config.holiday = enabled ? 1 : 0;
 	}
 
 
 	/**
-	 * Get enable holiday mode
+	 * @description Determine if holiday mode is enabled
 	 * @return {Boolean}
 	 */
 	getEnhol()
@@ -448,16 +590,20 @@ class DaikinConfig
 
 
 	/**
-	 * Set enable holiday mode
-	 * @param {Boolean} bool
+	 * @description Enable/disable holiday mode
+	 * @param {Boolean} enabled
 	 * @return {void}
 	 */
-	setEnhol(bool)
+	setEnhol(enabled)
 	{
-		this.config.en_hol = bool ? 1 : 0;
+		this.config.en_hol = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Get sync time
+	 * @returns {Number}
+	 */
 	getSynctime()
 	{
 		if (!('sync_time' in this.config)) this.config.sync_time = 0;
@@ -465,12 +611,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Sync time
+	 * @param {Number} time
+	 * @returns {void}
+	 */
 	setSynctime(time)
 	{
 		this.config.sync_time = time;
 	}
 
 
+	/**
+	 * @description Get Notice IP int
+	 * @returns {Number}
+	 */
 	getNoticeIpInt()
 	{
 		if (!('notice_ip_int' in this.config)) this.config.notice_ip_int = 0;
@@ -478,12 +633,21 @@ class DaikinConfig
 	}
 
 
-	settNoticeIpInt(int)
+	/**
+	 * @description Set Notice IP Int
+	 * @param {Number} value
+	 * @returns {void}
+	 */
+	settNoticeIpInt(value)
 	{
-		this.config.notice_ip_int = parseInt(int);
+		this.config.notice_ip_int = parseInt(value);
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getNoticesyncint()
 	{
 		if (!('notice_sync_int' in this.config)) this.config.notice_sync_int = 0;
@@ -491,12 +655,21 @@ class DaikinConfig
 	}
 
 
-	setNoticesyncint(int)
+	/**
+	 * @description Set Notice sync Int
+	 * @param {Number} value
+	 * @returns {void}
+	 */
+	setNoticesyncint(value)
 	{
-		this.config.notice_sync_int = parseInt(int);
+		this.config.notice_sync_int = parseInt(value);
 	}
 
 
+	/**
+	 * @description Get mode
+	 * @returns {Number}
+	 */
 	getMode()
 	{
 		if (!('mode' in this.config)) this.config.mode = 0;
@@ -504,12 +677,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Mode
+	 * @param {Number} mode
+	 * @returns {void}
+	 */
 	setMode(mode)
 	{
 		this.config.mode = parseInt(mode);
 	}
 
 
+	/**
+	 * @description Get operate
+	 * @returns {bool}
+	 */
 	getOperate()
 	{
 		if (!('operate' in this.config)) this.config.operate = 0;
@@ -517,12 +699,21 @@ class DaikinConfig
 	}
 
 
-	setOperate(bool)
+	/**
+	 * @description Set Operate
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setOperate(enabled)
 	{
-		this.config.operate = bool ? 1 : 0;
+		this.config.operate = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getBkauto()
 	{
 		if (!('bk_auto' in this.config)) this.config.bk_auto = 0;
@@ -530,15 +721,19 @@ class DaikinConfig
 	}
 
 
-	setBkauto(int)
+	/**
+	 * @description Set Bk Auto
+	 * @param {Number} value
+	 * @returns {void}
+	 */
+	setBkauto(value)
 	{
-		this.config.bk_auto = parseInt(int);
+		this.config.bk_auto = parseInt(value);
 	}
 
 
 	/**
 	 * @description Get Target temperature
-	 * @package DaikinConfig
 	 * @returns {number}
 	 */
 	getStemp()
@@ -550,19 +745,18 @@ class DaikinConfig
 
 	/**
 	 * @description Set Target temperature
-	 * @package DaikinConfig
-	 * @param {number} int
+	 * @param {number} value
 	 * @returns {void}
 	 */
-	setStemp(int)
+	setStemp(value)
 	{
-		this.config.stemp = isNaN(parseInt(int)) ? '-' : parseInt(int);
+		this.config.stemp = isNaN(parseInt(value)) ? '-' : parseInt(value);
 	}
 
 
 	/**
 	 * @description Get outside temperature
-	 * @returns {int}
+	 * @returns {Number}
 	 */
 	getOtemp()
 	{
@@ -573,17 +767,17 @@ class DaikinConfig
 
 	/**
 	 * @description Set outside temperature
-	 * @param {int} int
+	 * @param {Number} value
 	 */
-	setOtemp(int)
+	setOtemp(value)
 	{
-		this.config.otemp = isNaN(parseInt(int)) ? '-' : parseInt(int);
+		this.config.otemp = isNaN(parseInt(value)) ? '-' : parseInt(value);
 	}
 
 
 	/**
 	 * @description Get inside temperature
-	 * @returns {int}
+	 * @returns {Number}
 	 */
 	getHtemp()
 	{
@@ -594,14 +788,18 @@ class DaikinConfig
 
 	/**
 	 * @description Set inside temperature
-	 * @param {int} int
+	 * @param {Number} value
 	 */
-	setHtemp(int)
+	setHtemp(value)
 	{
-		this.config.htemp = isNaN(parseInt(int)) ? '-' : parseInt(int);
+		this.config.htemp = isNaN(parseInt(value)) ? '-' : parseInt(value);
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getDt1()
 	{
 		if (!('dt1' in this.config)) this.config.dt1 = 0;
@@ -609,12 +807,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setDt1(dt)
 	{
 		this.config.dt1 = dt;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getDt2()
 	{
 		if (!('dt2' in this.config)) this.config.dt2 = 0;
@@ -622,6 +829,11 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setDt2(dt)
 	{
 		this.config.dt2 = dt;
@@ -701,10 +913,14 @@ class DaikinConfig
 				break;
 		}
 
-		this.config.f_rate = vals.indexOf(rate);
+		this.config.f_rate = DaikinConfig.getKeyByValue(vals, rate);
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getDfr1()
 	{
 		if (!('dfr1' in this.config)) this.config.dfr1 = 0;
@@ -712,12 +928,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setDfr1(rate)
 	{
 		this.config.dfr1 = rate;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getDfr2()
 	{
 		if (!('dfr2' in this.config)) this.config.dfr2 = 0;
@@ -725,12 +950,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setDfr2(rate)
 	{
 		this.config.dfr2 = rate;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getFairside()
 	{
 		if (!('f_airside' in this.config)) this.config.f_airside = 0;
@@ -738,12 +972,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setFairside(side)
 	{
 		this.config.f_airside = side;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getAirside1()
 	{
 		if (!('airside1' in this.config)) this.config.airside1 = 0;
@@ -751,12 +994,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setAirside1(side)
 	{
 		this.config.airside1 = side;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getAirside2()
 	{
 		if (!('airside2' in this.config)) this.config.airside2 = 0;
@@ -764,12 +1016,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setAirside2(side)
 	{
 		this.config.airside2 = side;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getFauto()
 	{
 		if (!('f_auto' in this.config)) this.config.f_auto = 0;
@@ -777,12 +1038,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setFauto(auto)
 	{
 		this.config.f_auto = auto;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getAuto1()
 	{
 		if (!('auto1' in this.config)) this.config.auto1 = 0;
@@ -790,12 +1060,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setAuto1(auto)
 	{
 		this.config.auto1 = auto;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getAuto2()
 	{
 		if (!('auto2' in this.config)) this.config.auto2 = 0;
@@ -803,6 +1082,11 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setAuto2(auto)
 	{
 		this.config.auto2 = auto;
@@ -829,7 +1113,7 @@ class DaikinConfig
 	setFdir(direction)
 	{
 		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
-		this.config.f_dir = vals.indexOf(direction);
+		this.config.f_dir = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
 
@@ -853,7 +1137,7 @@ class DaikinConfig
 	setDfd1(direction)
 	{
 		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
-		this.config.dfd1 = vals.indexOf(direction);
+		this.config.dfd1 = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
 
@@ -877,13 +1161,13 @@ class DaikinConfig
 	setDfd2(direction)
 	{
 		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
-		this.config.dfd2 = vals.indexOf(direction);
+		this.config.dfd2 = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
 
 	/**
 	 * @description is filter warning showing
-	 * @returns {bool}
+	 * @returns {Boolean}
 	 */
 	getFiltersigninfo()
 	{
@@ -894,7 +1178,7 @@ class DaikinConfig
 
 	/**
 	 * @description Set filter warning
-	 * @param {bool} show
+	 * @param {Boolean} show
 	 * @returns {void}
 	 */
 	setFiltersigninfo(show)
@@ -903,6 +1187,10 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getCent()
 	{
 		if (!('cent' in this.config)) this.config.cent = 0;
@@ -910,25 +1198,43 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setCent(cent)
 	{
 		this.config.cent = cent;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Boolean}
+	 */
 	getEncent()
 	{
-		if (!('en_cent' in this.config)) this.config.en_cent = 0;
-		return this.config.en_cent;
+		if (!('en_cent' in this.config)) this.config.en_cent = false;
+		return this.config.en_cent ? true : false;
 	}
 
 
-	setEncent(cent)
+	/**
+	 * @description Set
+	 * @param {Boolean} enable
+	 * @returns {void}
+	 */
+	setEncent(enable)
 	{
-		this.config.en_cent = cent;
+		this.config.en_cent = enable ? 1 : 0;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getRemo()
 	{
 		if (!('remo' in this.config)) this.config.remo = 0;
@@ -936,12 +1242,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setRemo(remo)
 	{
 		this.config.remo = remo;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getModel()
 	{
 		if (!('model' in this.config)) this.config.model = 0;
@@ -949,12 +1264,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setModel(model)
 	{
 		this.config.model = model;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getHumd()
 	{
 		if (!('humd' in this.config)) this.config.humd = 0;
@@ -962,12 +1286,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setHumd(hum)
 	{
 		this.config.humd = hum;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getShumd()
 	{
 		if (!('s_humd' in this.config)) this.config.s_humd = 0;
@@ -975,51 +1308,87 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setShumd(hum)
 	{
 		this.config.s_humd = hum;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Boolean}
+	 */
 	getEnzone()
 	{
 		if (!('en_zone' in this.config)) this.config.en_zone = 0;
-		return this.config.en_zone;
+		return this.config.en_zone ? true : false;
 	}
 
 
-	setEnzone(zone)
+	/**
+	 * @description Enable/disable zone
+	 * @param {Boolean} enable
+	 * @returns {void}
+	 */
+	setEnzone(enable)
 	{
-		this.config.en_zone = zone;
+		this.config.en_zone = enable ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determine if Linear zone is enabled
+	 * @returns {Boolean}
+	 */
 	getEnlinearzone()
 	{
 		if (!('en_linear_zone' in this.config)) this.config.en_linear_zone = 0;
-		return this.config.en_linear_zone;
+		return this.config.en_linear_zone ? true : false;
 	}
 
 
-	setEnlinearzone(zone)
+	/**
+	 * @description Enable/disable Linear zone
+	 * @param {Boolean} enable
+	 * @returns {void}
+	 */
+	setEnlinearzone(enable)
 	{
-		this.config.en_linear_zone = zone;
+		this.config.en_linear_zone = enable ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determine if Filter sign is enabled
+	 * @returns {Boolean}
+	 */
 	getEnfiltersign()
 	{
 		if (!('en_filter_sign' in this.config)) this.config.en_filter_sign = 0;
-		return this.config.en_filter_sign;
+		return this.config.en_filter_sign ? true : false;
 	}
 
 
-	setEnfiltersign(sign)
+	/**
+	 * @description Enable/disable Filter sign
+	 * @param {Boolean} enable
+	 * @returns {void}
+	 */
+	setEnfiltersign(enable)
 	{
-		this.config.en_filter_sign = sign;
+		this.config.en_filter_sign = enable ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Get Acled
+	 * @returns {Number}
+	 */
 	getAcled()
 	{
 		if (!('acled' in this.config)) this.config.acled = 0;
@@ -1027,12 +1396,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set Acled
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setAcled(led)
 	{
 		this.config.acled = led;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getLand()
 	{
 		if (!('land' in this.config)) this.config.land = 0;
@@ -1040,12 +1418,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setLand(land)
 	{
 		this.config.land = land;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getElec()
 	{
 		if (!('elec' in this.config)) this.config.elec = 0;
@@ -1053,12 +1440,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setElec(elec)
 	{
 		this.config.elec = elec;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getTemp()
 	{
 		if (!('temp' in this.config)) this.config.temp = 0;
@@ -1066,12 +1462,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setTemp(temp)
 	{
 		this.config.temp = temp;
 	}
 
 
+	/**
+	 * @description
+	 * @returns {Number}
+	 */
 	getMdtct()
 	{
 		if (!('m_dtct' in this.config)) this.config.m_dtct = 0;
@@ -1079,12 +1484,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set
+	 * @param {Number} value
+	 * @returns {void}
+	 */
 	setMdtct(dtct)
 	{
 		this.config.m_dtct = dtct;
 	}
 
 
+	/**
+	 * @description Get Acdst
+	 * @returns {Number}
+	 */
 	getAcdst()
 	{
 		if (!('ac_dst' in this.config)) this.config.ac_dst = 0;
@@ -1092,12 +1506,21 @@ class DaikinConfig
 	}
 
 
-	setAcdst(dst)
+	/**
+	 * @description Set Acdst
+	 * @param {Number} value
+	 * @returns {void}
+	 */
+	setAcdst(value)
 	{
-		this.config.ac_dst = dst;
+		this.config.ac_dst = value;
 	}
 
 
+	/**
+	 * @description Fetch Demand?
+	 * @returns {Number}
+	 */
 	getDmnd()
 	{
 		if (!('dmnd' in this.config)) this.config.dmnd = 0;
@@ -1105,12 +1528,21 @@ class DaikinConfig
 	}
 
 
-	setDmnd(dmnd)
+	/**
+	 * @description Set demand?
+	 * @param {Number} value
+	 * @return {void}
+	 */
+	setDmnd(value)
 	{
-		this.config.dmnd = dmnd;
+		this.config.dmnd = value;
 	}
 
 
+	/**
+	 * @description Determines if Temp setting is enabled
+	 * @returns {Boolean}
+	 */
 	getEnTempSetting()
 	{
 		if (!('en_temp_setting' in this.config)) this.config.en_temp_setting = 0;
@@ -1118,12 +1550,21 @@ class DaikinConfig
 	}
 
 
-	setEnTempSetting(bool)
+	/**
+	 * @description Enable/disable temp setting
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnTempSetting(enabled)
 	{
-		this.config.en_temp_setting = bool ? 1 : 0;
+		this.config.en_temp_setting = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Fan rate is enabled
+	 * @returns {boolean}
+	 */
 	getEnfrate()
 	{
 		if (!('en_frate' in this.config)) this.config.en_frate = 0;
@@ -1131,12 +1572,21 @@ class DaikinConfig
 	}
 
 
-	setEnfrate(bool)
+	/**
+	 * @description Enable/disable Fan rate
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnfrate(enabled)
 	{
-		this.config.en_frate = bool ? 1 : 0;
+		this.config.en_frate = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Fan direction is enabled
+	 * @returns {Boolean}
+	 */
 	getEnfdir()
 	{
 		if (!('en_fdir' in this.config)) this.config.en_fdir = 0;
@@ -1144,12 +1594,21 @@ class DaikinConfig
 	}
 
 
-	setEnfdir(bool)
+	/**
+	 * @description Enable/disable Fan direction
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnfdir(enabled)
 	{
-		this.config.en_fdir = bool ? 1 : 0;
+		this.config.en_fdir = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if rtempa is enabled
+	 * @returns {Boolean}
+	 */
 	getEnrtempa()
 	{
 		if (!('en_rtemp_a' in this.config)) this.config.en_rtemp_a = 0;
@@ -1157,12 +1616,21 @@ class DaikinConfig
 	}
 
 
-	setEnrtempa(bool)
+	/**
+	 * @description Enable/disable rtempa
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnrtempa(enabled)
 	{
-		this.config.en_rtemp_a = bool ? 1 : 0;
+		this.config.en_rtemp_a = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if SP mode is enabled
+	 * @returns {Boolean}
+	 */
 	getEnspmode()
 	{
 		if (!('en_spmode' in this.config)) this.config.en_spmode = 0;
@@ -1170,12 +1638,21 @@ class DaikinConfig
 	}
 
 
-	setEnspmode(bool)
+	/**
+	 * @description Enable/disable SP mode
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnspmode(enabled)
 	{
-		this.config.en_spmode = bool ? 1 : 0;
+		this.config.en_spmode = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determine if ipwsep is enabled
+	 * @returns {Boolean}
+	 */
 	getEnipwsep()
 	{
 		if (!('en_ipw_sep' in this.config)) this.config.en_ipw_sep = 0;
@@ -1183,12 +1660,21 @@ class DaikinConfig
 	}
 
 
-	setEnipwsep(bool)
+	/**
+	 * @description Enable/disable ipwsep
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnipwsep(enabled)
 	{
-		this.config.en_ipw_sep = bool ? 1 : 0;
+		this.config.en_ipw_sep = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Scd timer is enabled
+	 * @returns {boolean}
+	 */
 	getEnscdltmr()
 	{
 		if (!('en_scdltmr' in this.config)) this.config.en_scdltmr = 0;
@@ -1196,12 +1682,21 @@ class DaikinConfig
 	}
 
 
-	setEnscdltmr(bool)
+	/**
+	 * @description Enable/disable Scd timer
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnscdltmr(enabled)
 	{
-		this.config.en_scdltmr = bool ? 1 : 0;
+		this.config.en_scdltmr = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if monpow is enabled
+	 * @returns {Boolean}
+	 */
 	getEnmompow()
 	{
 		if (!('en_mompow' in this.config)) this.config.en_mompow = 0;
@@ -1209,12 +1704,21 @@ class DaikinConfig
 	}
 
 
-	setEnmompow(bool)
+	/**
+	 * @description Enable/disable mompow
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnmompow(enabled)
 	{
-		this.config.en_mompow = bool ? 1 : 0;
+		this.config.en_mompow = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Patrol is enabled
+	 * @returns {Boolean}
+	 */
 	getEnpatrol()
 	{
 		if (!('en_patrol' in this.config)) this.config.en_patrol = 0;
@@ -1222,12 +1726,21 @@ class DaikinConfig
 	}
 
 
-	setEnpatrol(bool)
+	/**
+	 * @description Enable/disable Patrol
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnpatrol(enabled)
 	{
-		this.config.en_patrol = bool ? 1 : 0;
+		this.config.en_patrol = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Air side is enabled
+	 * @returns {Boolean}
+	 */
 	getEnairside()
 	{
 		if (!('en_airside' in this.config)) this.config.en_airside = 0;
@@ -1235,12 +1748,21 @@ class DaikinConfig
 	}
 
 
-	setEnairside(bool)
+	/**
+	 * @description Enable/disable Air side
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnairside(enabled)
 	{
-		this.config.en_airside = bool ? 1 : 0;
+		this.config.en_airside = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determines if Quick timer is enabled
+	 * @returns {Boolean}
+	 */
 	getEnquicktimer()
 	{
 		if (!('en_quick_timer' in this.config)) this.config.en_quick_timer = 0;
@@ -1248,12 +1770,21 @@ class DaikinConfig
 	}
 
 
-	setEnquicktimer(bool)
+	/**
+	 * @description Enable/disable Quick timer
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnquicktimer(enabled)
 	{
-		this.config.en_quick_timer = bool ? 1 : 0;
+		this.config.en_quick_timer = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determine if Auto mode is enabled
+	 * @returns {Boolean}
+	 */
 	getEnauto()
 	{
 		if (!('en_auto' in this.config)) this.config.en_auto = 0;
@@ -1261,12 +1792,20 @@ class DaikinConfig
 	}
 
 
-	setEnauto(bool)
+	/**
+	 * @description Enable/disable Auto mode
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnauto(enabled)
 	{
-		this.config.en_auto = bool ? 1 : 0;
+		this.config.en_auto = enabled ? 1 : 0;
 	}
 
-
+	/**
+	 * @description Determines if Dry mode is enabled
+	 * @returns {Boolean}
+	 */
 	getEndry()
 	{
 		if (!('en_dry' in this.config)) this.config.en_dry = 0;
@@ -1274,12 +1813,21 @@ class DaikinConfig
 	}
 
 
-	setEndry(bool)
+	/**
+	 * @description Enable/disable Dry mode
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEndry(enabled)
 	{
-		this.config.en_dry = bool ? 1 : 0;
+		this.config.en_dry = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Determine if Common zone is enabled
+	 * @returns {Boolean}
+	 */
 	getEnCommonZone()
 	{
 		if (!('en_common_zone' in this.config)) this.config.en_common_zone = 0;
@@ -1287,12 +1835,21 @@ class DaikinConfig
 	}
 
 
-	setEnCommonZone(bool)
+	/**
+	 * @description Enable/disable Common zone
+	 * @param {Boolean} enabled
+	 * @returns {void}
+	 */
+	setEnCommonZone(enabled)
 	{
-		this.config.en_common_zone = bool ? 1 : 0;
+		this.config.en_common_zone = enabled ? 1 : 0;
 	}
 
 
+	/**
+	 * @description Get low cool
+	 * @returns {Number}
+	 */
 	getCoolL()
 	{
 		if (!('cool_l' in this.config)) this.config.cool_l = 0;
@@ -1300,12 +1857,21 @@ class DaikinConfig
 	}
 
 
-	setCoolL(cool)
+	/**
+	 * @description Set low cool
+	 * @param {Number} low
+	 * @return {void}
+	 */
+	setCoolL(low)
 	{
-		this.config.cool_l = cool;
+		this.config.cool_l = low;
 	}
 
 
+	/**
+	 * @description Get high cool
+	 * @returns {Number}
+	 */
 	getCoolH()
 	{
 		if (!('cool_h' in this.config)) this.config.cool_h = 0;
@@ -1313,12 +1879,21 @@ class DaikinConfig
 	}
 
 
-	setCoolH(cool)
+	/**
+	 * @description Set high Cool
+	 * @param {Number} high
+	 * @returns {void}
+	 */
+	setCoolH(high)
 	{
-		this.config.cool_h = cool;
+		this.config.cool_h = high;
 	}
 
 
+	/**
+	 * Get low heat
+	 * @returns {Number}
+	 */
 	getHeatL()
 	{
 		if (!('heat_l' in this.config)) this.config.heat_l = 0;
@@ -1326,12 +1901,21 @@ class DaikinConfig
 	}
 
 
-	setHeatl(heat)
+	/**
+	 * Set low heat
+	 * @param {Number} low
+	 * @returns {void}
+	 */
+	setHeatL(low)
 	{
-		this.config.heat_l = heat;
+		this.config.heat_l = low;
 	}
 
 
+	/**
+	 * @description Get high Heat
+	 * @returns {Number}
+	 */
 	getHeatH()
 	{
 		if (!('heat_h' in this.config)) this.config.heat_h = 0;
@@ -1339,12 +1923,21 @@ class DaikinConfig
 	}
 
 
-	setHeatH(heat)
+	/**
+	 * @description Set high heat
+	 * @param {Number} high
+	 * @returns {void}
+	 */
+	setHeatH(high)
 	{
-		this.config.heat_h = heat;
+		this.config.heat_h = high;
 	}
 
 
+	/**
+	 * @description Get fan rate steps
+	 * @returns {Number}
+	 */
 	getFratesteps()
 	{
 		if (!('frate_steps' in this.config)) this.config.frate_steps = 0;
@@ -1352,12 +1945,21 @@ class DaikinConfig
 	}
 
 
+	/**
+	 * @description Set fan rate steps
+	 * @param {Number} steps
+	 * @returns {void}
+	 */
 	setFratesteps(steps)
 	{
 		this.config.frate_steps = steps;
 	}
 
 
+	/**
+	 * @description Determine if auto fan rate is enabled
+	 * @returns {Boolean}
+	 */
 	getEnFrateAuto()
 	{
 		if (!('en_frate_auto' in this.config)) this.config.en_frate_auto = 0;
@@ -1366,8 +1968,8 @@ class DaikinConfig
 
 
 	/**
-	 * @description Is special mode enabled
-	 * @returns {bool}
+	 * @description Determine if special mode enabled
+	 * @returns {Boolean}
 	 */
 	getEnSpMode()
 	{
@@ -1378,7 +1980,7 @@ class DaikinConfig
 
 	/**
 	 * @description Get special mode
-	 * @returns {bool}
+	 * @returns {Boolean}
 	 */
 	getSpMode()
 	{
@@ -1400,7 +2002,7 @@ class DaikinConfig
 
 
 	/**
-	 * @description Get special mode kind
+	 * @description Get advanced special mode kind
 	 * @returns {string}
 	 */
 	getAdvanced()
@@ -1414,10 +2016,22 @@ class DaikinConfig
 			'2/13': 'Powerful streamer',
 			'12/13': 'Eco streamer',
 		};
+
+		return modes[this.config.adv];
 	}
 
 
-
+	/**
+	 * @description Fetch object key for given value
+	 * @static
+	 * @param {Object} object
+	 * @param {String} value
+	 * @returns {String}
+	 */
+	static getKeyByValue(object, value)
+	{
+		return Object.keys(object).find(key => object[key] === value);
+	}
 
 
 	/**
