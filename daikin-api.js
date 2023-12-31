@@ -103,6 +103,16 @@ module.exports = function(RED)
 					.catch(err =>{node.warn(err);});
 					break;
 
+				case 'getZoneSetting':
+					promise = doRequest({endpoint: 'get_zone_setting', data: null});
+					promise.then((data) =>
+					{
+						node.daikin.updateFromJSON(data);
+						node.send({topic: topic, payload: DaikinApi.getZoneSetting(node.daikin, node.user)});
+					})
+					.catch(err =>{node.warn(err);});
+					break;
+
 				default:
 					node.send(msg);
 					break;
@@ -179,6 +189,13 @@ module.exports = function(RED)
 					node.status({fill:'grey', shape:'ring', text:'Syncing'});
 					info = {...info, ...payload};
 					return node.server.request('get_sensor_info', null);
+				})
+				// get_zone_setting
+				.then((payload) =>
+				{
+					node.status({fill:'grey', shape:'ring', text:'Syncing...'});
+					info = {...info, ...payload};
+					return node.server.request('get_zone_setting', null);
 				})
 				// done
 				.then((payload) =>

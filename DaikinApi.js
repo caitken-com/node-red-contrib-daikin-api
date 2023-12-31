@@ -94,7 +94,24 @@ class DaikinApi
 		return {
 			'OutsideTemperature': isNaN(daikin.getOtemp()) ? 'Disabled' : daikin.getOtemp(),
 			'InsideTempature': isNaN(daikin.getHtemp()) ? 'Disabled' : daikin.getHtemp(),
-		}
+		};
+	}
+
+
+	/**
+	 * @description Generates outgoing payload
+	 * @static
+	 * @memberof DaikinApi
+	 * @param {DaikinConfig} daikin DaikinConfig instance
+	 * @param {DaikinUserConfig} user DaikinUserConfig instance
+	 * @returns {Object} JSON object
+	 */
+	static getZoneSetting(daikin, user)
+	{
+		let zones = daikin.getZoneNames();
+		let values = daikin.getZonesOnOff();
+
+		return {'Zones': zones, 'On': values};
 	}
 }
 

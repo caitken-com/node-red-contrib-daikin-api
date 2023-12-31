@@ -121,6 +121,11 @@ module.exports = function(RED)
 					opts.method = 'GET';
 					break;
 
+				case 'get_zone_setting':
+					opts.path = '/skyfi/aircon/get_zone_setting';
+					opts.method = 'GET';
+					break;
+
 				case 'get_control_info':
 				default:
 					opts.path = '/skyfi/aircon/get_control_info';
@@ -203,10 +208,24 @@ module.exports = function(RED)
 		 */
 		node.formatResponse = function(payload)
 		{
-			let data = payload.split(',').reduce((acc, pair) =>
+			// Results are comma seperated
+			let data = decodeURIComponent(payload).split(',').reduce((acc, pair) =>
 			{
+				// Each result is `key=value`
 				let [key, value] = pair.split('=');
-				acc[key] = value;
+
+				// Determine if value should be an array
+				let vals = value.split(';');
+
+				// Not array, return as single value
+				if (vals.length == 1)
+				{
+					acc[key] = vals[0];
+					return acc;
+				}
+
+				// Return value as array
+				acc[key] = [...vals];
 				return acc;
 			}, {});
 

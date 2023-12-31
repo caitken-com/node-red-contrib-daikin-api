@@ -48,7 +48,7 @@ class DaikinConfig
 	getPower()
 	{
 		if (!('pow' in this.config)) this.config.pow = 0;
-		return this.config.pow == 0 ? false : true;
+		return parseInt(this.config.pow) === 1 ? true : false;
 	}
 
 
@@ -389,7 +389,7 @@ class DaikinConfig
 	getLed()
 	{
 		if (!('led' in this.config)) this.config.led = 0;
-		return this.config.led == 0 ? false : true;
+		return parseInt(this.config.led) === 1 ? true : false;
 	}
 
 
@@ -410,7 +410,7 @@ class DaikinConfig
 	getEnSetZone()
 	{
 		if (!('en_setzone' in this.config)) this.config.en_setzone = 0;
-		return this.config.en_setzone == 0 ? false : true;
+		return parseInt(this.config.en_setzone) === 1 ? true : false;
 	}
 
 
@@ -541,7 +541,7 @@ class DaikinConfig
 	getEnch()
 	{
 		if (!('ench' in this.config)) this.config.ench = 0;
-		return this.config.ench == 0 ? false : true;
+		return parseInt(this.config.ench) === 1 ? true : false;
 	}
 
 
@@ -563,7 +563,7 @@ class DaikinConfig
 	getHoliday()
 	{
 		if (!('holiday' in this.config)) this.config.holiday = 0;
-		return this.config.holiday == 0 ? false : true;
+		return parseInt(this.config.holiday) === 1 ? true : false;
 	}
 
 
@@ -585,7 +585,7 @@ class DaikinConfig
 	getEnhol()
 	{
 		if (!('en_hol' in this.config)) this.config.en_hol = 0;
-		return this.config.en_hol == 0 ? false : true;
+		return parseInt(this.config.en_hol) === 1 ? true : false;
 	}
 
 
@@ -695,7 +695,7 @@ class DaikinConfig
 	getOperate()
 	{
 		if (!('operate' in this.config)) this.config.operate = 0;
-		return this.config.operate == 0 ? false : true;
+		return parseInt(this.config.operate) === 1 ? true : false;
 	}
 
 
@@ -1172,18 +1172,18 @@ class DaikinConfig
 	getFiltersigninfo()
 	{
 		if (!('filter_sign_info' in this.config)) this.config.filter_sign_info = 0;
-		return this.config.filter_sign_info == 0 ? false : true;
+		return parseInt(this.config.filter_sign_info) === 1 ? true : false;
 	}
 
 
 	/**
 	 * @description Set filter warning
-	 * @param {Boolean} show
+	 * @param {Boolean} enable
 	 * @returns {void}
 	 */
-	setFiltersigninfo(show)
+	setFiltersigninfo(enable)
 	{
-		this.config.filter_sign_info = show ? 1 : 0;
+		this.config.filter_sign_info = enable ? 1 : 0;
 	}
 
 
@@ -1215,8 +1215,8 @@ class DaikinConfig
 	 */
 	getEncent()
 	{
-		if (!('en_cent' in this.config)) this.config.en_cent = false;
-		return this.config.en_cent ? true : false;
+		if (!('en_cent' in this.config)) this.config.en_cent = 0;
+		return parseInt(this.config.en_cent) === 1 ? true : false;
 	}
 
 
@@ -1326,7 +1326,7 @@ class DaikinConfig
 	getEnzone()
 	{
 		if (!('en_zone' in this.config)) this.config.en_zone = 0;
-		return this.config.en_zone ? true : false;
+		return parseInt(this.config.en_zone) === 1 ? true : false;
 	}
 
 
@@ -1348,7 +1348,7 @@ class DaikinConfig
 	getEnlinearzone()
 	{
 		if (!('en_linear_zone' in this.config)) this.config.en_linear_zone = 0;
-		return this.config.en_linear_zone ? true : false;
+		return parseInt(this.config.en_linear_zone) === 1 ? true : false;
 	}
 
 
@@ -1370,7 +1370,7 @@ class DaikinConfig
 	getEnfiltersign()
 	{
 		if (!('en_filter_sign' in this.config)) this.config.en_filter_sign = 0;
-		return this.config.en_filter_sign ? true : false;
+		return parseInt(this.config.en_filter_sign) === 1 ? true : false;
 	}
 
 
@@ -1546,7 +1546,7 @@ class DaikinConfig
 	getEnTempSetting()
 	{
 		if (!('en_temp_setting' in this.config)) this.config.en_temp_setting = 0;
-		return this.config.en_temp_setting == 0 ? false : true;
+		return parseInt(this.config.en_temp_setting) === 1 ? true : false;
 	}
 
 
@@ -1568,7 +1568,7 @@ class DaikinConfig
 	getEnfrate()
 	{
 		if (!('en_frate' in this.config)) this.config.en_frate = 0;
-		return this.config.en_frate == 0 ? false : true;
+		return parseInt(this.config.en_frate) === 1 ? true : false;
 	}
 
 
@@ -1590,7 +1590,7 @@ class DaikinConfig
 	getEnfdir()
 	{
 		if (!('en_fdir' in this.config)) this.config.en_fdir = 0;
-		return this.config.en_fdir == 0 ? false : true;
+		return parseInt(this.config.en_fdir) === 1 ? true : false;
 	}
 
 
@@ -1612,7 +1612,7 @@ class DaikinConfig
 	getEnrtempa()
 	{
 		if (!('en_rtemp_a' in this.config)) this.config.en_rtemp_a = 0;
-		return this.config.en_rtemp_a == 0 ? false : true;
+		return parseInt(this.config.en_rtemp_a) === 1 ? true : false;
 	}
 
 
@@ -1634,7 +1634,7 @@ class DaikinConfig
 	getEnspmode()
 	{
 		if (!('en_spmode' in this.config)) this.config.en_spmode = 0;
-		return this.config.en_spmode == 0 ? false : true;
+		return parseInt(this.config.en_spmode) === 1 ? true : false;
 	}
 
 
@@ -1656,7 +1656,7 @@ class DaikinConfig
 	getEnipwsep()
 	{
 		if (!('en_ipw_sep' in this.config)) this.config.en_ipw_sep = 0;
-		return this.config.en_ipw_sep == 0 ? false : true;
+		return parseInt(this.config.en_ipw_sep) === 1 ? true : false;
 	}
 
 
@@ -1678,7 +1678,7 @@ class DaikinConfig
 	getEnscdltmr()
 	{
 		if (!('en_scdltmr' in this.config)) this.config.en_scdltmr = 0;
-		return this.config.en_scdltmr == 0 ? false : true;
+		return parseInt(this.config.en_scdltmr) === 1 ? true : false;
 	}
 
 
@@ -1700,7 +1700,7 @@ class DaikinConfig
 	getEnmompow()
 	{
 		if (!('en_mompow' in this.config)) this.config.en_mompow = 0;
-		return this.config.en_mompow == 0 ? false : true;
+		return parseInt(this.config.en_mompow) === 1 ? true : false;
 	}
 
 
@@ -1722,7 +1722,7 @@ class DaikinConfig
 	getEnpatrol()
 	{
 		if (!('en_patrol' in this.config)) this.config.en_patrol = 0;
-		return this.config.en_patrol == 0 ? false : true;
+		return parseInt(this.config.en_patrol) === 1 ? true : false;
 	}
 
 
@@ -1744,7 +1744,7 @@ class DaikinConfig
 	getEnairside()
 	{
 		if (!('en_airside' in this.config)) this.config.en_airside = 0;
-		return this.config.en_airside ? true : false;
+		return parseInt(this.config.en_airside) === 1 ? true : false;
 	}
 
 
@@ -1766,7 +1766,7 @@ class DaikinConfig
 	getEnquicktimer()
 	{
 		if (!('en_quick_timer' in this.config)) this.config.en_quick_timer = 0;
-		return this.config.en_quick_timer == 0 ? false : true;
+		return parseInt(this.config.en_quick_timer) === 1 ? true : false;
 	}
 
 
@@ -1788,7 +1788,7 @@ class DaikinConfig
 	getEnauto()
 	{
 		if (!('en_auto' in this.config)) this.config.en_auto = 0;
-		return this.config.en_auto == 0 ? false : true;
+		return parseInt(this.config.en_auto) === 1 ? true : false;
 	}
 
 
@@ -1809,7 +1809,7 @@ class DaikinConfig
 	getEndry()
 	{
 		if (!('en_dry' in this.config)) this.config.en_dry = 0;
-		return this.config.en_dry ? true : false;
+		return parseInt(this.config.en_dry) === 1 ? true : false;
 	}
 
 
@@ -1831,7 +1831,7 @@ class DaikinConfig
 	getEnCommonZone()
 	{
 		if (!('en_common_zone' in this.config)) this.config.en_common_zone = 0;
-		return this.config.en_common_zone == 0 ? false : true;
+		return parseInt(this.config.en_common_zone) === 1 ? true : false;
 	}
 
 
@@ -1963,7 +1963,7 @@ class DaikinConfig
 	getEnFrateAuto()
 	{
 		if (!('en_frate_auto' in this.config)) this.config.en_frate_auto = 0;
-		return this.config.en_frate_auto == 0 ? false : true;
+		return parseInt(this.config.en_frate_auto) === 1 ? true : false;
 	}
 
 
@@ -1974,7 +1974,7 @@ class DaikinConfig
 	getEnSpMode()
 	{
 		if (!('en_spmode' in this.config)) this.config.en_spmode = 0;
-		return this.config.en_spmode == 0 ? false : true;
+		return parseInt(this.config.en_spmode) === 1 ? true : false;
 	}
 
 
@@ -1985,7 +1985,7 @@ class DaikinConfig
 	getSpMode()
 	{
 		if (!('spmode' in this.config)) this.config.spmode = 0;
-		return this.config.spmode == 0 ? false : true;
+		return parseInt(this.config.spmode) === 1 ? true : false;
 	}
 
 
@@ -2018,6 +2018,33 @@ class DaikinConfig
 		};
 
 		return modes[this.config.adv];
+	}
+
+
+	/**
+	 * @description Get zone names
+	 * @returns {string[]}
+	 */
+	getZoneNames()
+	{
+		if (!('zone_name') in this.config) this.config.zone_name = [];
+		return this.config.zone_name;
+	}
+
+
+	/**
+	 * @description Get zone open/close status
+	 * @returns {boolean[]}
+	 */
+	getZonesOnOff()
+	{
+		if (!('zone_onoff') in this.config) this.config.zone_onoff = [];
+
+		let out = [];
+
+		this.config.zone_onoff.forEach((value) => out.push(parseInt(value) === 1 ? true : false));
+
+		return out;
 	}
 
 
