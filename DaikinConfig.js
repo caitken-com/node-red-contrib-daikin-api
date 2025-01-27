@@ -47,7 +47,7 @@ class DaikinConfig
 	 */
 	getPower()
 	{
-		if (!('pow' in this.config)) this.config.pow = 0;
+		if (!('pow' in this.config)) this.setPower(false);
 		return parseInt(this.config.pow) === 1 ? true : false;
 	}
 
@@ -69,7 +69,7 @@ class DaikinConfig
 	 */
 	getType()
 	{
-		if (!('type' in this.config)) this.config.type = 0;
+		if (!('type' in this.config)) this.setType('');
 		return this.config.type;
 	}
 
@@ -91,7 +91,7 @@ class DaikinConfig
 	 */
 	getReg()
 	{
-		if (!('reg' in this.config)) this.config.reg = '';
+		if (!('reg' in this.config)) this.setReg('');
 		return this.config.reg;
 	}
 
@@ -113,7 +113,7 @@ class DaikinConfig
 	 */
 	getDst()
 	{
-		if (!('dst' in this.config)) this.config.dst = 0;
+		if (!('dst' in this.config)) this.setDst(0);
 		return this.config.dst;
 	}
 
@@ -131,23 +131,23 @@ class DaikinConfig
 
 	/**
 	 * @description
-	 * @returns {Number}
+	 * @returns {String}
 	 */
 	getVer()
 	{
-		if (!('ver' in this.config)) this.config.ver = 0;
-		return this.config.ver;
+		if (!('ver' in this.config)) this.setVer('0.0.0');
+		return this.config.ver.replaceAll('_', '.');
 	}
 
 
 	/**
 	 * @description Set Version
-	 * @param {Number} ver
+	 * @param {String} ver
 	 * @returns {void}
 	 */
 	setVer(ver)
 	{
-		this.config.ver = ver;
+		this.config.ver = ver.replaceAll('.', '_');
 	}
 
 
@@ -157,8 +157,8 @@ class DaikinConfig
 	 */
 	getRev()
 	{
-		if (!('rev' in this.config)) this.config.rev = 0;
-		return this.config.rev;
+		if (!('rev' in this.config)) this.setRev(0);
+		return parseInt(this.config.rev);
 	}
 
 
@@ -169,29 +169,29 @@ class DaikinConfig
 	 */
 	setRev(rev)
 	{
-		this.config.rev = rev;
+		this.config.rev = parseInt(rev);
 	}
 
 
 	/**
 	 * @description
-	 * @returns {Number}
+	 * @returns {Boolean}
 	 */
 	getErr()
 	{
-		if (!('err' in this.config)) this.config.err = 0;
-		return this.config.err;
+		if (!('err' in this.config)) this.setErr(false);
+		return parseInt(this.config.err) ? true : false;
 	}
 
 
 	/**
 	 * @description Set Error
-	 * @param {Number} err
+	 * @param {Boolean} err
 	 * @returns {void}
 	 */
 	setErr(err)
 	{
-		this.config.err = err;
+		this.config.err = err ? 1 : 0;
 	}
 
 
@@ -201,7 +201,7 @@ class DaikinConfig
 	 */
 	getLocation()
 	{
-		if (!('location' in this.config)) this.config.location = '';
+		if (!('location' in this.config)) this.setLocation('');
 		return this.config.location;
 	}
 
@@ -223,12 +223,8 @@ class DaikinConfig
 	 */
 	getName()
 	{
-		if (!('name' in this.config)) this.config.name = '';
-
-		// Hex to ascii
-		return this.config.name.match(/.{1,2}/g).map(function(v){
-			return String.fromCharCode(parseInt(v, 16));
-		}).join('');
+		if (!('name' in this.config)) this.setName('');
+		return this.config.name;
 	}
 
 
@@ -239,13 +235,6 @@ class DaikinConfig
 	 */
 	setName(name)
 	{
-		for (let i = 0; i < String(name).length; i++)
-		{
-			let c = name.charCodeAt(i);
-			let d = "00" + c.toString(16);
-			let e = d.substr(d.length-2);
-		}
-
 		this.config.name = name;
 	}
 
@@ -256,7 +245,7 @@ class DaikinConfig
 	 */
 	getIcon()
 	{
-		if (!('icon' in this.config)) this.config.icon = 0;
+		if (!('icon' in this.config)) this.setIcon(0);
 		return this.config.icon;
 	}
 
@@ -274,18 +263,18 @@ class DaikinConfig
 
 	/**
 	 * @description
-	 * @returns {Number}
+	 * @returns {String}
 	 */
 	getMethod()
 	{
-		if (!('method' in this.config)) this.config.method = 0;
+		if (!('method' in this.config)) this.setMethod('');
 		return this.config.method;
 	}
 
 
 	/**
 	 * @description Set Method
-	 * @param {Number} method
+	 * @param {String} method
 	 * @returns {void}
 	 */
 	setMethod(method)
@@ -300,8 +289,8 @@ class DaikinConfig
 	 */
 	getPort()
 	{
-		if (!('port' in this.config)) this.config.port = 0;
-		return this.config.port;
+		if (!('port' in this.config)) this.setPort(0);
+		return parseInt(this.config.port);
 	}
 
 
@@ -312,7 +301,7 @@ class DaikinConfig
 	 */
 	setPort(port)
 	{
-		this.config.port = port;
+		this.config.port = parseInt(port);
 	}
 
 
@@ -322,8 +311,8 @@ class DaikinConfig
 	 */
 	getId()
 	{
-		if (!('id' in this.config)) this.config.id = 0;
-		return this.config.id;
+		if (!('id' in this.config)) this.setId(0);
+		return parseInt(this.config.id);
 	}
 
 
@@ -334,7 +323,7 @@ class DaikinConfig
 	 */
 	setId(id)
 	{
-		this.config.id = id;
+		this.config.id = parseInt(id);
 	}
 
 
@@ -344,8 +333,8 @@ class DaikinConfig
 	 */
 	getLpwflag()
 	{
-		if (!('lpw_flag' in this.config)) this.config.lpw_flag = 0;
-		return this.config.lpw_flag;
+		if (!('lpw_flag' in this.config)) this.setLpwflag(0);
+		return parseInt(this.config.lpw_flag);
 	}
 
 
@@ -366,8 +355,8 @@ class DaikinConfig
 	 */
 	getAdpkind()
 	{
-		if (!('adp_kind' in this.config)) this.config.adp_kind = 0;
-		return this.config.adp_kind;
+		if (!('adp_kind' in this.config)) this.setAdpkind(0);
+		return parseInt(this.config.adp_kind);
 	}
 
 
@@ -378,7 +367,7 @@ class DaikinConfig
 	 */
 	setAdpkind(kind)
 	{
-		this.config.adp_kind = kind;
+		this.config.adp_kind = parseInt(kind);
 	}
 
 
@@ -388,7 +377,7 @@ class DaikinConfig
 	 */
 	getLed()
 	{
-		if (!('led' in this.config)) this.config.led = 0;
+		if (!('led' in this.config)) this.setLed(false);
 		return parseInt(this.config.led) === 1 ? true : false;
 	}
 
@@ -409,7 +398,7 @@ class DaikinConfig
 	 */
 	getEnSetZone()
 	{
-		if (!('en_setzone' in this.config)) this.config.en_setzone = 0;
+		if (!('en_setzone' in this.config)) this.setEnSetZone(false);
 		return parseInt(this.config.en_setzone) === 1 ? true : false;
 	}
 
@@ -426,12 +415,17 @@ class DaikinConfig
 
 	/**
 	 * @description
-	 * @returns {Number}
+	 * @returns {String}
 	 */
 	getMac()
 	{
-		if (!('mac' in this.config)) this.config.mac = 0;
-		return this.config.mac;
+		if (!('mac' in this.config)) this.setMac('');
+
+		// Split string into array every 2 chars `DCF505F02621`
+		const parts = this.config.mac.match(/.{1,2}/g);
+
+		// Return as string `dc:f5:05:f0:26:21`
+		return parts.join(':');
 	}
 
 
@@ -448,18 +442,18 @@ class DaikinConfig
 
 	/**
 	 * @description Get adaptor mode
-	 * @returns {Number}
+	 * @returns {String}
 	 */
 	getAdpmode()
 	{
-		if (!('adp_mode' in this.config)) this.config.adp_mode = 0;
+		if (!('adp_mode' in this.config)) this.setAdpmode('');
 		return this.config.adp_mode;
 	}
 
 
 	/**
 	 * @description Set adaptor mode
-	 * @param {Number} mode
+	 * @param {String} mode
 	 * @returns {void}
 	 */
 	setAdpmode(mode)
@@ -470,18 +464,18 @@ class DaikinConfig
 
 	/**
 	 * @description Get SSID
-	 * @returns {Number}
+	 * @returns {String}
 	 */
 	getSsid()
 	{
-		if (!('ssid' in this.config)) this.config.ssid = 0;
+		if (!('ssid' in this.config)) this.setSsid('');
 		return this.config.ssid;
 	}
 
 
 	/**
 	 * @description Set SSID
-	 * @param {Number} dst
+	 * @param {String} dst
 	 * @returns {void}
 	 */
 	setSsid(id)
@@ -496,8 +490,8 @@ class DaikinConfig
 	 */
 	getErrtype()
 	{
-		if (!('err_type' in this.config)) this.config.err_type = 0;
-		return this.config.err_type;
+		if (!('err_type' in this.config)) this.setErrtype(0);
+		return parseInt(this.config.err_type);
 	}
 
 
@@ -508,7 +502,7 @@ class DaikinConfig
 	 */
 	setErrtype(type)
 	{
-		this.config.err_type = type;
+		this.config.err_type = parseInt(type);
 	}
 
 
@@ -518,8 +512,8 @@ class DaikinConfig
 	 */
 	getErrcode()
 	{
-		if (!('err_code' in this.config)) this.config.err_code = 0;
-		return this.config.err_code;
+		if (!('err_code' in this.config)) this.setErrcode(0);
+		return parseInt(this.config.err_code);
 	}
 
 
@@ -530,7 +524,7 @@ class DaikinConfig
 	 */
 	setErrcode(code)
 	{
-		this.config.err_code = code;
+		this.config.err_code = parseInt(code);
 	}
 
 
@@ -540,7 +534,7 @@ class DaikinConfig
 	 */
 	getEnch()
 	{
-		if (!('ench' in this.config)) this.config.ench = 0;
+		if (!('ench' in this.config)) this.setEnch(false);
 		return parseInt(this.config.ench) === 1 ? true : false;
 	}
 
@@ -562,7 +556,7 @@ class DaikinConfig
 	 */
 	getHoliday()
 	{
-		if (!('holiday' in this.config)) this.config.holiday = 0;
+		if (!('holiday' in this.config)) this.setHoliday(false);
 		return parseInt(this.config.holiday) === 1 ? true : false;
 	}
 
@@ -584,7 +578,7 @@ class DaikinConfig
 	 */
 	getEnhol()
 	{
-		if (!('en_hol' in this.config)) this.config.en_hol = 0;
+		if (!('en_hol' in this.config)) this.setEnhol(false);
 		return parseInt(this.config.en_hol) === 1 ? true : false;
 	}
 
@@ -606,8 +600,8 @@ class DaikinConfig
 	 */
 	getSynctime()
 	{
-		if (!('sync_time' in this.config)) this.config.sync_time = 0;
-		return this.config.sync_time;
+		if (!('sync_time' in this.config)) this.setSynctime(0);
+		return parseInt(this.config.sync_time);
 	}
 
 
@@ -618,7 +612,7 @@ class DaikinConfig
 	 */
 	setSynctime(time)
 	{
-		this.config.sync_time = time;
+		this.config.sync_time = parseInt(time);
 	}
 
 
@@ -628,7 +622,7 @@ class DaikinConfig
 	 */
 	getNoticeIpInt()
 	{
-		if (!('notice_ip_int' in this.config)) this.config.notice_ip_int = 0;
+		if (!('notice_ip_int' in this.config)) this.settNoticeIpInt(0);
 		return parseInt(this.config.notice_ip_int);
 	}
 
@@ -648,9 +642,9 @@ class DaikinConfig
 	 * @description
 	 * @returns {Number}
 	 */
-	getNoticesyncint()
+	getNoticeSyncInt()
 	{
-		if (!('notice_sync_int' in this.config)) this.config.notice_sync_int = 0;
+		if (!('notice_sync_int' in this.config)) this.setNoticeSyncInt(0);
 		return parseInt(this.config.notice_sync_int);
 	}
 
@@ -660,7 +654,7 @@ class DaikinConfig
 	 * @param {Number} value
 	 * @returns {void}
 	 */
-	setNoticesyncint(value)
+	setNoticeSyncInt(value)
 	{
 		this.config.notice_sync_int = parseInt(value);
 	}
@@ -672,7 +666,7 @@ class DaikinConfig
 	 */
 	getMode()
 	{
-		if (!('mode' in this.config)) this.config.mode = 0;
+		if (!('mode' in this.config)) this.setMode(0);
 		return parseInt(this.config.mode);
 	}
 
@@ -694,8 +688,8 @@ class DaikinConfig
 	 */
 	getOperate()
 	{
-		if (!('operate' in this.config)) this.config.operate = 0;
-		return parseInt(this.config.operate) === 1 ? true : false;
+		if (!('operate' in this.config)) this.setOperate(false);
+		return parseInt(this.config.operate);
 	}
 
 
@@ -711,12 +705,12 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Bk Auto
 	 * @returns {Number}
 	 */
 	getBkauto()
 	{
-		if (!('bk_auto' in this.config)) this.config.bk_auto = 0;
+		if (!('bk_auto' in this.config)) this.setBkauto(0);
 		return parseInt(this.config.bk_auto);
 	}
 
@@ -738,7 +732,7 @@ class DaikinConfig
 	 */
 	getStemp()
 	{
-		if (!('stemp' in this.config)) this.config.stemp = '-';
+		if (!('stemp' in this.config)) this.setStemp('-');
 		return parseInt(this.config.stemp);
 	}
 
@@ -760,7 +754,7 @@ class DaikinConfig
 	 */
 	getOtemp()
 	{
-		if (!('otemp' in this.config)) this.config.otemp = '-';
+		if (!('otemp' in this.config)) this.setOtemp('-');
 		return parseInt(this.config.otemp);
 	}
 
@@ -781,7 +775,7 @@ class DaikinConfig
 	 */
 	getHtemp()
 	{
-		if (!('htemp' in this.config)) this.config.htemp = '-';
+		if (!('htemp' in this.config)) this.setHtemp('-');
 		return parseInt(this.config.htemp);
 	}
 
@@ -797,46 +791,46 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Dt 1
 	 * @returns {Number}
 	 */
 	getDt1()
 	{
-		if (!('dt1' in this.config)) this.config.dt1 = 0;
-		return this.config.dt1;
+		if (!('dt1' in this.config)) this.setDt1(0);
+		return parseInt(this.config.dt1);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Dt 1
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setDt1(dt)
 	{
-		this.config.dt1 = dt;
+		this.config.dt1 = parseInt();
 	}
 
 
 	/**
-	 * @description
+	 * @description Get Dt 2
 	 * @returns {Number}
 	 */
 	getDt2()
 	{
-		if (!('dt2' in this.config)) this.config.dt2 = 0;
-		return this.config.dt2;
+		if (!('dt2' in this.config)) this.setDt2(0);
+		return parseInt(this.config.dt2);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description  Set Dt 2
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setDt2(dt)
 	{
-		this.config.dt2 = dt;
+		this.config.dt2 = parseInt(dt);
 	}
 
 
@@ -846,7 +840,7 @@ class DaikinConfig
 	 */
 	getFrate()
 	{
-		if (!('f_rate' in this.config)) this.config.f_rate = 0;
+		if (!('f_rate' in this.config)) this.setFrate('Low');
 
 		let vals = {
 			'0': 'Auto',
@@ -866,6 +860,7 @@ class DaikinConfig
 		switch (this.getFratesteps())
 		{
 			case 2:
+				vals['3'] = 'High';
 				vals['5'] = 'High';
 				break;
 
@@ -904,6 +899,7 @@ class DaikinConfig
 		switch (this.getFratesteps())
 		{
 			case 2:
+				vals['3'] = 'High';
 				vals['5'] = 'High';
 				break;
 
@@ -918,18 +914,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Drf 1
 	 * @returns {Number}
 	 */
 	getDfr1()
 	{
-		if (!('dfr1' in this.config)) this.config.dfr1 = 0;
+		if (!('dfr1' in this.config)) this.setDfr1(0);
 		return this.config.dfr1;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Drf 1
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -940,18 +936,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Drf 2
 	 * @returns {Number}
 	 */
 	getDfr2()
 	{
-		if (!('dfr2' in this.config)) this.config.dfr2 = 0;
+		if (!('dfr2' in this.config)) this.setDfr2(0);
 		return this.config.dfr2;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Drf 2
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -962,18 +958,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Fan air side
 	 * @returns {Number}
 	 */
 	getFairside()
 	{
-		if (!('f_airside' in this.config)) this.config.f_airside = 0;
+		if (!('f_airside' in this.config)) this.setFairside(0);
 		return this.config.f_airside;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Fan air side
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -984,62 +980,62 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get air side 1
 	 * @returns {Number}
 	 */
 	getAirside1()
 	{
-		if (!('airside1' in this.config)) this.config.airside1 = 0;
-		return this.config.airside1;
+		if (!('airside1' in this.config)) this.setAirside1(0);
+		return parseInt(this.config.airside1);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set air side 1
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setAirside1(side)
 	{
-		this.config.airside1 = side;
+		this.config.airside1 = parseInt(side);
 	}
 
 
 	/**
-	 * @description
+	 * @description Get air side 2
 	 * @returns {Number}
 	 */
 	getAirside2()
 	{
-		if (!('airside2' in this.config)) this.config.airside2 = 0;
-		return this.config.airside2;
+		if (!('airside2' in this.config)) this.setAirside2(0);
+		return parseInt(this.config.airside2);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set air side 2
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setAirside2(side)
 	{
-		this.config.airside2 = side;
+		this.config.airside2 = parseInt(side);
 	}
 
 
 	/**
-	 * @description
+	 * @description Get fan auto
 	 * @returns {Number}
 	 */
 	getFauto()
 	{
-		if (!('f_auto' in this.config)) this.config.f_auto = 0;
+		if (!('f_auto' in this.config)) this.setFauto(0);
 		return this.config.f_auto;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set fan auto
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1050,46 +1046,46 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get auto 1
 	 * @returns {Number}
 	 */
 	getAuto1()
 	{
-		if (!('auto1' in this.config)) this.config.auto1 = 0;
-		return this.config.auto1;
+		if (!('auto1' in this.config)) this.setAuto1(0);
+		return parseInt(this.config.auto1);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set auto 1
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setAuto1(auto)
 	{
-		this.config.auto1 = auto;
+		this.config.auto1 = parseInt(auto);
 	}
 
 
 	/**
-	 * @description
+	 * @description Get auto 2
 	 * @returns {Number}
 	 */
 	getAuto2()
 	{
-		if (!('auto2' in this.config)) this.config.auto2 = 0;
-		return this.config.auto2;
+		if (!('auto2' in this.config)) this.setAuto2(0);
+		return parseInt(this.config.auto2);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set auto 2
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setAuto2(auto)
 	{
-		this.config.auto2 = auto;
+		this.config.auto2 = parseInt(auto);
 	}
 
 
@@ -1099,8 +1095,15 @@ class DaikinConfig
 	 */
 	getFdir()
 	{
-		if (!('f_dir' in this.config)) this.config.f_dir = 0;
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		if (!('f_dir' in this.config)) this.setFdir('Off');
+
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		return vals[this.config.f_dir];
 	}
 
@@ -1112,7 +1115,13 @@ class DaikinConfig
 	 */
 	setFdir(direction)
 	{
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		this.config.f_dir = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
@@ -1123,8 +1132,15 @@ class DaikinConfig
 	 */
 	getDfd1()
 	{
-		if (!('dfd1' in this.config)) this.config.dfd1 = 0;
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		if (!('dfd1' in this.config)) this.setDfd1('Off');
+
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		return vals[this.config.dfd1];
 	}
 
@@ -1136,7 +1152,13 @@ class DaikinConfig
 	 */
 	setDfd1(direction)
 	{
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		this.config.dfd1 = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
@@ -1147,8 +1169,15 @@ class DaikinConfig
 	 */
 	getDfd2()
 	{
-		if (!('dfd2' in this.config)) this.config.dfd2 = 0;
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		if (!('dfd2' in this.config)) this.setDfd2('Off');
+
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		return vals[this.config.dfd2];
 	}
 
@@ -1160,18 +1189,24 @@ class DaikinConfig
 	 */
 	setDfd2(direction)
 	{
-		let vals = {0: 'Off', 1: 'Vertical', 2: 'Horizontal', 3: '3D'};
+		const vals = {
+			0: 'Off',
+			1: 'Vertical',
+			2: 'Horizontal',
+			3: '3D'
+		};
+
 		this.config.dfd2 = DaikinConfig.getKeyByValue(vals, direction);
 	}
 
 
 	/**
-	 * @description is filter warning showing
+	 * @description Get filter warning
 	 * @returns {Boolean}
 	 */
 	getFiltersigninfo()
 	{
-		if (!('filter_sign_info' in this.config)) this.config.filter_sign_info = 0;
+		if (!('filter_sign_info' in this.config)) this.setFiltersigninfo(false);
 		return parseInt(this.config.filter_sign_info) === 1 ? true : false;
 	}
 
@@ -1188,18 +1223,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get cent ~ Assume this costing calc?
 	 * @returns {Number}
 	 */
 	getCent()
 	{
-		if (!('cent' in this.config)) this.config.cent = 0;
+		if (!('cent' in this.config)) this.setCent(0);
 		return this.config.cent;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set cent ~ Assume this costing calc?
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1210,18 +1245,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Determine if cent is enabled
 	 * @returns {Boolean}
 	 */
 	getEncent()
 	{
-		if (!('en_cent' in this.config)) this.config.en_cent = 0;
+		if (!('en_cent' in this.config)) this.setEncent(false);
 		return parseInt(this.config.en_cent) === 1 ? true : false;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Enable/disable cent
 	 * @param {Boolean} enable
 	 * @returns {void}
 	 */
@@ -1232,40 +1267,40 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get number of remotes/controllers?
 	 * @returns {Number}
 	 */
-	getRemo()
+	getRemotes()
 	{
-		if (!('remo' in this.config)) this.config.remo = 0;
-		return this.config.remo;
+		if (!('remo' in this.config)) this.setRemo(0);
+		return parseInt(this.config.remo);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Remo
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setRemo(remo)
 	{
-		this.config.remo = remo;
+		this.config.remo = parseInt(remo);
 	}
 
 
 	/**
-	 * @description
+	 * @description Get model
 	 * @returns {Number}
 	 */
 	getModel()
 	{
-		if (!('model' in this.config)) this.config.model = 0;
+		if (!('model' in this.config)) this.getModel(0);
 		return this.config.model;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set model
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1276,56 +1311,56 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get current humidity
 	 * @returns {Number}
 	 */
 	getHumd()
 	{
-		if (!('humd' in this.config)) this.config.humd = 0;
-		return this.config.humd;
+		if (!('humd' in this.config)) this.setHumd(0);
+		return parseInt(this.config.humd);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set current humidity
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setHumd(hum)
 	{
-		this.config.humd = hum;
+		this.config.humd = parseInt(hum);
 	}
 
 
 	/**
-	 * @description
+	 * @description Get target humidity
 	 * @returns {Number}
 	 */
 	getShumd()
 	{
-		if (!('s_humd' in this.config)) this.config.s_humd = 0;
-		return this.config.s_humd;
+		if (!('s_humd' in this.config)) this.getShumd(0);
+		return parseInt(this.config.s_humd);
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set target humidity
 	 * @param {Number} value
 	 * @returns {void}
 	 */
-	setShumd(hum)
+	setShumd(humidity)
 	{
-		this.config.s_humd = hum;
+		this.config.s_humd = parseInt(humidity);
 	}
 
 
 	/**
-	 * @description
+	 * @description Determine if zones is enabled
 	 * @returns {Boolean}
 	 */
 	getEnzone()
 	{
-		if (!('en_zone' in this.config)) this.config.en_zone = 0;
+		if (!('en_zone' in this.config)) this.setEnzone(false);
 		return parseInt(this.config.en_zone) === 1 ? true : false;
 	}
 
@@ -1347,7 +1382,7 @@ class DaikinConfig
 	 */
 	getEnlinearzone()
 	{
-		if (!('en_linear_zone' in this.config)) this.config.en_linear_zone = 0;
+		if (!('en_linear_zone' in this.config)) this.setEnlinearzone(false);
 		return parseInt(this.config.en_linear_zone) === 1 ? true : false;
 	}
 
@@ -1369,7 +1404,7 @@ class DaikinConfig
 	 */
 	getEnfiltersign()
 	{
-		if (!('en_filter_sign' in this.config)) this.config.en_filter_sign = 0;
+		if (!('en_filter_sign' in this.config)) this.setEnfiltersign(false);
 		return parseInt(this.config.en_filter_sign) === 1 ? true : false;
 	}
 
@@ -1386,40 +1421,40 @@ class DaikinConfig
 
 
 	/**
-	 * @description Get Acled
+	 * @description Get AC Led
 	 * @returns {Number}
 	 */
 	getAcled()
 	{
-		if (!('acled' in this.config)) this.config.acled = 0;
-		return this.config.acled;
+		if (!('acled' in this.config)) this.setAcled(false);
+		return parseInt(this.config.acled) === 1 ? true : false;
 	}
 
 
 	/**
-	 * @description Set Acled
+	 * @description Set AC Led
 	 * @param {Number} value
 	 * @returns {void}
 	 */
 	setAcled(led)
 	{
-		this.config.acled = led;
+		this.config.acled = led ? 1 : 0;
 	}
 
 
 	/**
-	 * @description
+	 * @description Get Land
 	 * @returns {Number}
 	 */
 	getLand()
 	{
-		if (!('land' in this.config)) this.config.land = 0;
+		if (!('land' in this.config)) this.setLand(0);
 		return this.config.land;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Land
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1430,18 +1465,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Get Elec
 	 * @returns {Number}
 	 */
 	getElec()
 	{
-		if (!('elec' in this.config)) this.config.elec = 0;
+		if (!('elec' in this.config)) this.setElec(0);
 		return this.config.elec;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Elec
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1452,18 +1487,18 @@ class DaikinConfig
 
 
 	/**
-	 * @description
+	 * @description Temp
 	 * @returns {Number}
 	 */
 	getTemp()
 	{
-		if (!('temp' in this.config)) this.config.temp = 0;
+		if (!('temp' in this.config)) this.setTemp(0);
 		return this.config.temp;
 	}
 
 
 	/**
-	 * @description Set
+	 * @description Set Temp
 	 * @param {Number} value
 	 * @returns {void}
 	 */
@@ -1479,7 +1514,7 @@ class DaikinConfig
 	 */
 	getMdtct()
 	{
-		if (!('m_dtct' in this.config)) this.config.m_dtct = 0;
+		if (!('m_dtct' in this.config)) this.setMdtct(0);
 		return this.config.m_dtct
 	}
 
@@ -1501,7 +1536,7 @@ class DaikinConfig
 	 */
 	getAcdst()
 	{
-		if (!('ac_dst' in this.config)) this.config.ac_dst = 0;
+		if (!('ac_dst' in this.config)) this.setAcdst(0);
 		return this.config.ac_dst;
 	}
 
@@ -1523,7 +1558,7 @@ class DaikinConfig
 	 */
 	getDmnd()
 	{
-		if (!('dmnd' in this.config)) this.config.dmnd = 0;
+		if (!('dmnd' in this.config)) this.setDmnd(0);
 		return this.config.dmnd;
 	}
 
@@ -1545,7 +1580,7 @@ class DaikinConfig
 	 */
 	getEnTempSetting()
 	{
-		if (!('en_temp_setting' in this.config)) this.config.en_temp_setting = 0;
+		if (!('en_temp_setting' in this.config)) this.setEnTempSetting(false);
 		return parseInt(this.config.en_temp_setting) === 1 ? true : false;
 	}
 
@@ -1567,7 +1602,7 @@ class DaikinConfig
 	 */
 	getEnfrate()
 	{
-		if (!('en_frate' in this.config)) this.config.en_frate = 0;
+		if (!('en_frate' in this.config)) this.setEnfrate(false);
 		return parseInt(this.config.en_frate) === 1 ? true : false;
 	}
 
@@ -1589,7 +1624,7 @@ class DaikinConfig
 	 */
 	getEnfdir()
 	{
-		if (!('en_fdir' in this.config)) this.config.en_fdir = 0;
+		if (!('en_fdir' in this.config)) this.setEnfdir(false);
 		return parseInt(this.config.en_fdir) === 1 ? true : false;
 	}
 
@@ -1611,7 +1646,7 @@ class DaikinConfig
 	 */
 	getEnrtempa()
 	{
-		if (!('en_rtemp_a' in this.config)) this.config.en_rtemp_a = 0;
+		if (!('en_rtemp_a' in this.config)) this.setEnrtempa(false);
 		return parseInt(this.config.en_rtemp_a) === 1 ? true : false;
 	}
 
@@ -1633,7 +1668,7 @@ class DaikinConfig
 	 */
 	getEnspmode()
 	{
-		if (!('en_spmode' in this.config)) this.config.en_spmode = 0;
+		if (!('en_spmode' in this.config)) this.setEnspmode(false);
 		return parseInt(this.config.en_spmode) === 1 ? true : false;
 	}
 
@@ -1655,7 +1690,7 @@ class DaikinConfig
 	 */
 	getEnipwsep()
 	{
-		if (!('en_ipw_sep' in this.config)) this.config.en_ipw_sep = 0;
+		if (!('en_ipw_sep' in this.config)) this.setEnipwsep(false);
 		return parseInt(this.config.en_ipw_sep) === 1 ? true : false;
 	}
 
@@ -1677,7 +1712,7 @@ class DaikinConfig
 	 */
 	getEnscdltmr()
 	{
-		if (!('en_scdltmr' in this.config)) this.config.en_scdltmr = 0;
+		if (!('en_scdltmr' in this.config)) this.setEnscdltmr(false);
 		return parseInt(this.config.en_scdltmr) === 1 ? true : false;
 	}
 
@@ -1699,7 +1734,7 @@ class DaikinConfig
 	 */
 	getEnmompow()
 	{
-		if (!('en_mompow' in this.config)) this.config.en_mompow = 0;
+		if (!('en_mompow' in this.config)) this.setEnmompow(false);
 		return parseInt(this.config.en_mompow) === 1 ? true : false;
 	}
 
@@ -1721,7 +1756,7 @@ class DaikinConfig
 	 */
 	getEnpatrol()
 	{
-		if (!('en_patrol' in this.config)) this.config.en_patrol = 0;
+		if (!('en_patrol' in this.config)) this.setEnpatrol(false);
 		return parseInt(this.config.en_patrol) === 1 ? true : false;
 	}
 
@@ -1743,7 +1778,7 @@ class DaikinConfig
 	 */
 	getEnairside()
 	{
-		if (!('en_airside' in this.config)) this.config.en_airside = 0;
+		if (!('en_airside' in this.config)) this.setEnairside(false);
 		return parseInt(this.config.en_airside) === 1 ? true : false;
 	}
 
@@ -1765,7 +1800,7 @@ class DaikinConfig
 	 */
 	getEnquicktimer()
 	{
-		if (!('en_quick_timer' in this.config)) this.config.en_quick_timer = 0;
+		if (!('en_quick_timer' in this.config)) this.setEnquicktimer(false);
 		return parseInt(this.config.en_quick_timer) === 1 ? true : false;
 	}
 
@@ -1787,7 +1822,7 @@ class DaikinConfig
 	 */
 	getEnauto()
 	{
-		if (!('en_auto' in this.config)) this.config.en_auto = 0;
+		if (!('en_auto' in this.config)) this.setEnauto(false);
 		return parseInt(this.config.en_auto) === 1 ? true : false;
 	}
 
@@ -1808,7 +1843,7 @@ class DaikinConfig
 	 */
 	getEndry()
 	{
-		if (!('en_dry' in this.config)) this.config.en_dry = 0;
+		if (!('en_dry' in this.config)) this.setEndry(false);
 		return parseInt(this.config.en_dry) === 1 ? true : false;
 	}
 
@@ -1830,7 +1865,7 @@ class DaikinConfig
 	 */
 	getEnCommonZone()
 	{
-		if (!('en_common_zone' in this.config)) this.config.en_common_zone = 0;
+		if (!('en_common_zone' in this.config)) this.setEnCommonZone(false);
 		return parseInt(this.config.en_common_zone) === 1 ? true : false;
 	}
 
@@ -1852,8 +1887,8 @@ class DaikinConfig
 	 */
 	getCoolL()
 	{
-		if (!('cool_l' in this.config)) this.config.cool_l = 0;
-		return this.config.cool_l;
+		if (!('cool_l' in this.config)) this.setCoolL(0);
+		return parseInt(this.config.cool_l);
 	}
 
 
@@ -1864,7 +1899,7 @@ class DaikinConfig
 	 */
 	setCoolL(low)
 	{
-		this.config.cool_l = low;
+		this.config.cool_l = parseInt(low);
 	}
 
 
@@ -1874,8 +1909,8 @@ class DaikinConfig
 	 */
 	getCoolH()
 	{
-		if (!('cool_h' in this.config)) this.config.cool_h = 0;
-		return this.config.cool_h;
+		if (!('cool_h' in this.config)) this.setCoolH(0);
+		return parseInt(this.config.cool_h);
 	}
 
 
@@ -1886,7 +1921,7 @@ class DaikinConfig
 	 */
 	setCoolH(high)
 	{
-		this.config.cool_h = high;
+		this.config.cool_h = parseInt(high);
 	}
 
 
@@ -1896,8 +1931,8 @@ class DaikinConfig
 	 */
 	getHeatL()
 	{
-		if (!('heat_l' in this.config)) this.config.heat_l = 0;
-		return this.config.heat_l;
+		if (!('heat_l' in this.config)) this.setHeatL(0);
+		return parseInt(this.config.heat_l);
 	}
 
 
@@ -1908,7 +1943,7 @@ class DaikinConfig
 	 */
 	setHeatL(low)
 	{
-		this.config.heat_l = low;
+		this.config.heat_l = parseInt(low);
 	}
 
 
@@ -1918,8 +1953,8 @@ class DaikinConfig
 	 */
 	getHeatH()
 	{
-		if (!('heat_h' in this.config)) this.config.heat_h = 0;
-		return this.config.heat_h;
+		if (!('heat_h' in this.config)) this.setHeatH(0);
+		return parseInt(this.config.heat_h);
 	}
 
 
@@ -1930,7 +1965,7 @@ class DaikinConfig
 	 */
 	setHeatH(high)
 	{
-		this.config.heat_h = high;
+		this.config.heat_h = parseInt(high);
 	}
 
 
@@ -1940,8 +1975,8 @@ class DaikinConfig
 	 */
 	getFratesteps()
 	{
-		if (!('frate_steps' in this.config)) this.config.frate_steps = 0;
-		return this.config.frate_steps;
+		if (!('frate_steps' in this.config)) this.setFratesteps(0);
+		return parseInt(this.config.frate_steps);
 	}
 
 
@@ -1952,7 +1987,7 @@ class DaikinConfig
 	 */
 	setFratesteps(steps)
 	{
-		this.config.frate_steps = steps;
+		this.config.frate_steps = parseInt(steps);
 	}
 
 
@@ -1962,7 +1997,7 @@ class DaikinConfig
 	 */
 	getEnFrateAuto()
 	{
-		if (!('en_frate_auto' in this.config)) this.config.en_frate_auto = 0;
+		if (!('en_frate_auto' in this.config)) this.getEnSpMode(false);
 		return parseInt(this.config.en_frate_auto) === 1 ? true : false;
 	}
 
@@ -1979,13 +2014,34 @@ class DaikinConfig
 
 
 	/**
+	 * @description Enable/disable special mode
+	 * @param {Boolean} enable
+	 * @returns {void}
+	 */
+	setEnSpMode(enable)
+	{
+		this.config.en_spmode = enable ? 1 : 0;
+	}
+
+
+	/**
 	 * @description Get special mode
-	 * @returns {Boolean}
+	 * @returns {String}
 	 */
 	getSpMode()
 	{
-		if (!('spmode' in this.config)) this.config.spmode = 0;
-		return parseInt(this.config.spmode) === 1 ? true : false;
+		if (!('spmode' in this.config)) this.setSpMode(0);
+		return this.config.spmode;
+	}
+
+
+	/**
+	 * @description Set special mode
+	 * @returns {String}
+	 */
+	setSpMode(mode)
+	{
+		this.config.spmode = mode;
 	}
 
 
@@ -1995,9 +2051,34 @@ class DaikinConfig
 	 */
 	getSpModeKind()
 	{
-		if (!('spmode_kind' in this.config)) return false;
-		let kinds = ['Streamer', 'Powerful', 'Eco'];
+		if (!('spmode_kind' in this.config)) this.setSpModeKind('');
+
+		const kinds = {
+			'': 'N/A',
+			0: 'Streamer',
+			1: 'Powerful',
+			2: 'Eco',
+		};
+
 		return kinds[this.config.spmode_kind];
+	}
+
+
+	/**
+	 * @description Set special mode kind
+	 * @param {String|Boolean} mode
+	 * @returns {void}
+	 */
+	setSpModeKind(mode)
+	{
+		const kinds = {
+			'': 'N/A',
+			0: 'Streamer',
+			1: 'Powerful',
+			2: 'Eco',
+		};
+
+		this.config.spmode_kind = DaikinConfig.getKeyByValue(kinds, mode);
 	}
 
 
@@ -2008,7 +2089,8 @@ class DaikinConfig
 	getAdvanced()
 	{
 		if (!('adv' in this.config)) this.config.adv = '';
-		let modes = {
+
+		const modes = {
 			'': 'N/A',
 			'2': 'Powerful',
 			'12': 'Eco',
@@ -2022,13 +2104,49 @@ class DaikinConfig
 
 
 	/**
+	 * @description Set advanced special mode kind
+	 * @param {String} mode
+	 * @return {void}
+	 */
+	setAdvanced(mode)
+	{
+		const modes = {
+			'': 'N/A',
+			'2': 'Powerful',
+			'12': 'Eco',
+			'13': 'Streamer',
+			'2/13': 'Powerful streamer',
+			'12/13': 'Eco streamer',
+		};
+
+		this.config.adv = DaikinConfig.getKeyByValue(modes, mode);
+	}
+
+
+	/**
 	 * @description Get zone names
 	 * @returns {string[]}
 	 */
 	getZoneNames()
 	{
-		if (!('zone_name') in this.config) this.config.zone_name = [];
+		if (!('zone_name') in this.config) this.setZoneNames([]);
 		return this.config.zone_name;
+	}
+
+
+	/**
+	 * @description Set zone names
+	 * @param {array} names
+	 * @returns {void}
+	 */
+	setZoneNames(names)
+	{
+		if (!('zone_name') in this.config) this.config.zone_name = [];
+
+		for (key in names)
+		{
+			this.config.zone_name[key] = names[key];
+		}
 	}
 
 
@@ -2036,15 +2154,31 @@ class DaikinConfig
 	 * @description Get zone open/close status
 	 * @returns {boolean[]}
 	 */
-	getZonesOnOff()
+	getZoneStates()
 	{
-		if (!('zone_onoff') in this.config) this.config.zone_onoff = [];
+		if (!('zone_onoff') in this.config) this.setZoneStates([]);
 
 		let out = [];
 
 		this.config.zone_onoff.forEach((value) => out.push(parseInt(value) === 1 ? true : false));
 
 		return out;
+	}
+
+
+	/**
+	 * @description Set zone open/close status
+	 * @param {boolean[]} values
+	 * @returns {void}
+	 */
+	setZoneStates(values)
+	{
+		if (!('zone_onoff') in this.config) this.config.zone_onoff = [];
+
+		for (key in values)
+		{
+			this.config.zone_onoff[key] = values[key] ? 1 : 0;
+		}
 	}
 
 

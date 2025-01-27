@@ -29,17 +29,17 @@ module.exports = function(RED)
 		/**
 		 * @description Create request options
 		 * @memberof DaikinServerNode
-		 * @param {string} command Endpoint
-		 * @param {string} payload data
+		 * @param {string} endpoint Endpoint
+		 * @param {Object} payload Data
 		 * @returns {Object}
 		 */
-		node.setRequestOpts = function(command, payload)
+		node.setRequestOpts = function(endpoint, payload)
 		{
 			let opts = {};
 			opts.hostname = node.ip;
 			opts.headers = {'Host': node.ip};
 
-			switch (command)
+			switch (endpoint)
 			{
 				case 'basic_info':
 					opts.path = '/skyfi/common/basic_info';
@@ -68,6 +68,41 @@ module.exports = function(RED)
 
 				case 'set_timer':
 					opts.path = '/skyfi/aircon/set_timer';
+					opts.method = 'POST';
+					break;
+
+				case 'get_price':
+					opts.path = '/skyfi/aircon/get_price';
+					opts.method = 'GET';
+					break;
+
+				case 'set_price':
+					opts.path = '/skyfi/aircon/set_price';
+					opts.method = 'POST';
+					break;
+
+				case 'get_notify':
+					opts.path = '/skyfi/common/get_notify';
+					opts.method = 'GET';
+					break;
+
+				case 'set_notify':
+					opts.path = '/skyfi/common/set_notify';
+					opts.method = 'POST';
+					break;
+
+				case 'set_regioncode':
+					opts.path = '/skyfi/common/set_regioncode';
+					opts.method = 'POST';
+					break;
+
+				case 'set_led':
+					opts.path = '/skyfi/common/set_led';
+					opts.method = 'POST';
+					break;
+
+				case 'reboot':
+					opts.path = '/skyfi/common/reboot';
 					opts.method = 'POST';
 					break;
 
@@ -107,7 +142,7 @@ module.exports = function(RED)
 					break;
 
 				case 'set_scdltimer':
-					opts.path = '/skyfi/aircon/get_scdltimer';
+					opts.path = '/skyfi/aircon/set_scdltimer';
 					opts.method = 'POST';
 					break;
 
@@ -116,13 +151,18 @@ module.exports = function(RED)
 					opts.method = 'GET';
 					break;
 
-				case 'set_control_info':
-					opts.path = '/skyfi/aircon/set_control_info';
+				case 'get_zone_setting':
+					opts.path = '/skyfi/aircon/get_zone_setting';
 					opts.method = 'GET';
 					break;
 
-				case 'get_zone_setting':
-					opts.path = '/skyfi/aircon/get_zone_setting';
+				case 'set_zone_setting':
+					opts.path = '/skyfi/aircon/set_zone_setting';
+					opts.method = 'GET';
+					break;
+
+				case 'set_control_info':
+					opts.path = '/skyfi/aircon/set_control_info';
 					opts.method = 'GET';
 					break;
 
@@ -146,9 +186,8 @@ module.exports = function(RED)
 		/**
 		 * @description Send request to wifi adaptor
 		 * @memberof DaikinServerNode
-		 * @param {string} ip Hostname of wifi adaptor
 		 * @param {string} endpoint Daikin API endpoint
-		 * @param {array} payload data
+		 * @param {Object} payload Data
 		 * @returns {Promise}
 		 */
 		node.request = function(endpoint, payload)
@@ -208,10 +247,10 @@ module.exports = function(RED)
 		 */
 		node.formatResponse = function(payload)
 		{
-			// Results are comma seperated
+			// Results are comma separated
 			let data = decodeURIComponent(payload).split(',').reduce((acc, pair) =>
 			{
-				// Each result is `key=value`
+				// Each result is `key=value` pair
 				let [key, value] = pair.split('=');
 
 				// Determine if value should be an array

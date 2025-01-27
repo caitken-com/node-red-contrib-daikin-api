@@ -4,8 +4,9 @@ const DaikinApi = 			require('./DaikinApi');
 
 
 /**
- * https://bitbucket.org/mustang51/pydaikin/src/master/
  * @description Routes and models Daikin API requests
+ * @see https://github.com/fredrike/pydaikin/
+ * @see https://github.com/ael-code/daikin-control
  * @package DaikinApiNode
  * @param {Object} RED
  * @author Christopher Aitken 2022
@@ -70,6 +71,16 @@ module.exports = function(RED)
 					{
 						node.daikin.updateFromJSON(data);
 						node.send({topic: topic, payload: data});
+					})
+					.catch(err =>{node.warn(err);});
+					break;
+
+				case 'getConfig':
+					promise = getApiFullConfig();
+					promise.then((data) =>
+					{
+						node.daikin.updateFromJSON(data);
+						node.send({topic: topic, payload: DaikinApi.getConfig(node.daikin, node.user)});
 					})
 					.catch(err =>{node.warn(err);});
 					break;

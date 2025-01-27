@@ -1,6 +1,6 @@
 {
 	"name": "@caitken-com/node-red-contrib-daikin-api",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Daikin Control API",
 	"main": "daikin-api.js",
 	"dependencies": {},

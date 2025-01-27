@@ -2,7 +2,7 @@
  * @description Models a user's configuration
  * @package DaikinApiNode
  * @author Christopher Aitken 2022
- * @version 1
+ * @version 1.0
  */
 class DaikinDaikinUserConfig
 {
