@@ -82,7 +82,7 @@ Fetches zone names, and ON/OFF status
 ```
 The above payload will return something similar to this:
 ```json
-{"Zones": [0:"-",1:"-",2:"-",3:"-",4:"-",5:"-",6:"-",7:"-"],"On":[0:false,1:false,2:false,3:false,4:false,5:false,6:false,7:false]}
+{"Zones": ["-","-","-","-","-","-","-","-"],"On":[false,false,false,false,false,false,false,false]}
 ```
 
 
