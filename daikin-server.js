@@ -247,6 +247,9 @@ module.exports = function(RED)
 		 */
 		node.formatResponse = function(payload)
 		{
+			if (!payload) return [];
+
+
 			// Results are comma separated
 			let data = decodeURIComponent(payload).split(',').reduce((acc, pair) =>
 			{
