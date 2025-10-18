@@ -124,6 +124,15 @@ module.exports = function(RED)
 					.catch(err =>{node.warn(err);});
 					break;
 
+				case 'setZoneSetting':
+					promise = doRequest({endpoint: 'set_zone_setting', data: DaikinApi.setZoneSetting(msg.payload, node.daikin, node.user)});
+					promise.then((data) =>
+					{
+						node.send({topic: topic, payload: data});
+					})
+					.catch(err =>{node.warn(err);});
+					break;
+
 				default:
 					node.send(msg);
 					break;

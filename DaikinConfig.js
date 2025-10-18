@@ -2143,7 +2143,7 @@ class DaikinConfig
 	{
 		if (!('zone_name') in this.config) this.config.zone_name = [];
 
-		for (key in names)
+		for (let key in names)
 		{
 			this.config.zone_name[key] = names[key];
 		}
@@ -2175,7 +2175,7 @@ class DaikinConfig
 	{
 		if (!('zone_onoff') in this.config) this.config.zone_onoff = [];
 
-		for (key in values)
+		for (let key in values)
 		{
 			this.config.zone_onoff[key] = values[key] ? 1 : 0;
 		}

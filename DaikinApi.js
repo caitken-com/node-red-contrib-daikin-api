@@ -219,9 +219,14 @@ class DaikinApi
 	 */
 	static setZoneSetting(data, daikin, user)
 	{
-		let payload = {
-			'zone_name': daikin.getZoneNames().join(';'),
-			'zone_onoff': daikin.getZoneStates().join(';'),
+		if (typeof data !== 'object') data = {};
+
+		if ('Zones' in data) daikin.setZoneNames(data.Zones);
+		if ('On' in data) daikin.setZoneStates(data.On);
+
+		return {
+			'zone_name': daikin.config.zone_name.join(';'),
+			'zone_onoff': daikin.config.zone_onoff.join(';'),
 		};
 	}
 }

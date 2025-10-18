@@ -11,7 +11,7 @@ Controls Daikin air-conditioner wifi controller/adaptor via Node Red. *Tested wi
 | Fan mode | *{int}* ID of Fan mode. Eg: `3` |
 | Heat mode | *{int}* ID of Heating mode. Eg: `1`|
 | Cool mode | *{int}* ID of Cooling mode. Eg: `2`|
-| Dry mode | *{int}* ID of Drying mode. Eg: `6`| 
+| Dry mode | *{int}* ID of Drying mode. Eg: `6`|
 | Dehumidifier mode | *{int}* ID of Dehumidifier mode. Eg: `3` |
 
 
@@ -84,6 +84,22 @@ The above payload will return something similar to this:
 ```json
 {"Zones": ["-","-","-","-","-","-","-","-"],"On":[false,false,false,false,false,false,false,false]}
 ```
+
+## Set zone setting
+
+Updates zone settings. At least **one** of the following must be set: `Zones`, `On` with all 0-7 indexes set:
+```json
+{
+	"cmd": "setZoneSetting",
+	"Zones": ["-","-","-","-","-","-","-","-"],
+	"On": [true,false,false,false,false,true,false,false]
+}
+```
+
+| Param | Type | Description |
+| - | - | - |
+| Zones | *{string[]}* | List of zone names. `-/abc...` |
+| On | *{bool[]}* | List of zone statuses. `true/false` |
 
 
 ## Get config
