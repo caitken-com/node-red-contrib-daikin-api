@@ -253,6 +253,8 @@ module.exports = function(RED)
 			// Results are comma separated
 			let data = decodeURIComponent(payload).split(',').reduce((acc, pair) =>
 			{
+				if (pair == '' || pair == null) return null;
+
 				// Each result is `key=value` pair
 				let [key, value] = pair.split('=');
 
